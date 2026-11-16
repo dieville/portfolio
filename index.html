@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="escuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diéville Leandro · Product Designer sênior</title>
+<meta name="description" content="Product Designer sênior generalista. Cases em fintech, healthtech e agrotech, com processo de ponta a ponta e IA no dia a dia.">
+<meta property="og:type" content="website"><meta property="og:title" content="Diéville Leandro · Product Designer sênior"><meta property="og:description" content="Product Designer sênior generalista. Cases em fintech, healthtech e agrotech, com processo de ponta a ponta e IA no dia a dia."><meta property="og:image" content="https://dieville.github.io/portfolio/img/og.jpg"><meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0F0E14">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{font-family:'Inter',system-ui,sans-serif}
+
+:root,[data-theme]{color-scheme:dark;--bg:#0F0E14;--surface:#19171F;--alt:#14121B;--ink:#F2F1F6;--text2:#C4C2CE;--text3:#9A98A6;--line:#2C2935;--chip:#252231;--deep:#1C1926;--accent:#7E7CCC}
+body{margin:0}
+a{color:inherit}
+a:hover{opacity:0.75}
+
+:root{--wood:#6B4F35;--mx:50%;--my:50%;--dur:1}
+[data-motion="reduzido"]{--dur:0}
+@media (prefers-reduced-motion: reduce){:root:not([data-motion="normal"]){--dur:0}}
+html{scroll-behavior:smooth}
+.ico{width:36px;height:36px;border-radius:999px;border:1px solid #4A4258;background:transparent;color:inherit;font:inherit;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.ico[aria-pressed="true"]{border-color:#7E7CCC;color:#7E7CCC}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.shelf .filler{background:#3A3546}
+.next{flex:none;width:96px;height:250px;border:2px dashed var(--text3);border-radius:6px 6px 2px 2px;display:flex;align-items:center;justify-content:center;color:var(--text3);font-family:'JetBrains Mono',monospace;font-size:11px;text-align:center;padding:8px}
+.next span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:13px}
+.stack{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px}
+.stack i{display:block;height:16px;border-radius:2px}
+@media (max-width:640px){header h1{font-size:40px!important}}
+
+/* estante com lanterna que segue o mouse */
+.shelf{position:relative;padding:48px 24px 0;border-radius:16px;background:
+ radial-gradient(420px circle at var(--mx) var(--my), color-mix(in srgb,var(--accent) 22%,transparent), transparent 60%), var(--surface);
+ border:1px solid var(--line);overflow:hidden;perspective:1200px}
+.row{display:flex;align-items:flex-end;gap:10px;padding:0 8px;border-bottom:14px solid var(--wood);}
+.filler{flex:none;border-radius:3px 3px 1px 1px;background:#3A3546}
+.book{flex:none;width:120px;border:0;padding:16px 10px;border-radius:6px 6px 2px 2px;color:#F2F1F6;cursor:pointer;font:inherit;text-align:left;
+ display:flex;flex-direction:column;justify-content:space-between;box-shadow:inset -10px 0 0 rgba(0,0,0,.2),inset 2px 0 0 rgba(255,255,255,.15);
+ transform-origin:bottom center;transition:transform calc(.35s * var(--dur)) cubic-bezier(.2,.8,.2,1), box-shadow calc(.35s * var(--dur))}
+.book:hover,.book:focus-visible{transform:translateY(-28px) rotate(-3deg);box-shadow:inset -10px 0 0 rgba(0,0,0,.2),0 18px 30px rgba(0,0,0,.45)}
+.book:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.book .t{writing-mode:vertical-rl;transform:rotate(180deg);font-size:22px;font-weight:700;align-self:center}
+.book small{font-size:11px;opacity:.85}
+.book.lifted{visibility:hidden}
+
+/* mascote original que acompanha o mouse */
+
+/* livro aberto */
+.stage{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(10,9,14,.72);z-index:10;padding:24px}
+.stage.open{display:flex}
+.flyer{position:fixed;border-radius:6px;z-index:11;transition:all calc(.55s * var(--dur)) cubic-bezier(.2,.8,.2,1);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:22px;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.open-book{display:flex;width:min(820px,100%);min-height:420px;perspective:1600px;opacity:0;transition:opacity calc(.25s * var(--dur))}
+.open-book.show{opacity:1}
+.cover{flex:1;border-radius:10px 0 0 10px;padding:32px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;transform-origin:right center;
+ transform:rotateY(0);transition:transform calc(.6s * var(--dur)) ease}
+.open-book.show .cover{transform:rotateY(-8deg)}
+.page{flex:1.3;background:var(--surface);color:var(--ink);border-radius:0 10px 10px 0;padding:32px;display:flex;flex-direction:column;gap:12px}
+.page dl{margin:0;display:grid;gap:10px}
+.page dt{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3)}
+.page dd{margin:0}
+.page .actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap}
+.btn{font:inherit;font-weight:600;padding:12px 18px;border-radius:8px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;text-decoration:none;min-height:44px}
+.btn.primary{background:#7E7CCC;border-color:#7E7CCC;color:#0F0E14}
+@media (max-width:640px){.open-book{flex-direction:column}.cover{border-radius:10px 10px 0 0;min-height:140px}.page{border-radius:0 0 10px 10px}.book{width:84px}.book .t{font-size:17px}.bot{display:none}}
+
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* boot do hero */
+#boot::after{content:"▍";animation:blink 1s steps(1) infinite;margin-left:2px}
+@keyframes blink{50%{opacity:0}}
+.boot-hide{opacity:0;transform:translateY(12px)}
+.boot-show{opacity:1;transform:none;transition:opacity calc(.6s * var(--dur)) ease,transform calc(.6s * var(--dur)) ease}
+/* cartas de conquista */
+.flip{perspective:1200px;border:0!important;background:none!important;padding:0!important;min-height:340px}
+.flip .inner{position:relative;width:100%;height:100%;min-height:340px;transform-style:preserve-3d;transition:transform calc(.6s * var(--dur)) cubic-bezier(.2,.8,.2,1)}
+.flip:hover .inner{transform:translateY(-8px) rotate(-1deg)}
+.flip.on .inner{transform:rotateY(180deg)}
+.flip .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:24px;display:flex;flex-direction:column;gap:14px;overflow:auto}
+.flip .front{background:linear-gradient(160deg,color-mix(in srgb,var(--accent) 22%,var(--surface)),var(--surface) 60%)}
+.flip .back{transform:rotateY(180deg)}
+.flip button.turn{all:unset;cursor:pointer;margin-top:auto;font-weight:600;color:var(--accent);padding:10px 0;min-height:24px}
+.flip button.turn:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.flip .badge{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);display:flex;align-items:center;gap:8px}
+.flip .badge i{font-style:normal;width:28px;height:28px;border-radius:8px;background:var(--accent);color:#fff;display:inline-flex;align-items:center;justify-content:center}
+[data-motion="reduzido"] .flip .inner,.still .flip .inner{transform:none!important}
+.still .flip .back,[data-motion="reduzido"] .flip .back{transform:none;visibility:hidden}
+.still .flip.on .back,[data-motion="reduzido"] .flip.on .back{visibility:visible}
+.still .flip.on .front,[data-motion="reduzido"] .flip.on .front{visibility:hidden}
+
+.guildas{background:#0F0E14;color:#C4C2CE;border-top:1px solid #2C2935;border-bottom:1px solid #2C2935}
+.g-wrap{max-width:1120px;margin:0 auto;padding:28px 32px;display:flex;align-items:center;gap:32px}
+.g-label{flex:none;display:flex;flex-direction:column;font-size:15px}
+.g-track{flex:1;min-width:0;overflow:hidden;display:flex;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.g-list{list-style:none;margin:0;padding:0 28px 0 0;display:flex;align-items:center;gap:56px;flex:none;animation:marquee 32s linear infinite}
+.g-track:hover .g-list{animation-play-state:paused}
+.g-list img{height:30px;width:auto;display:block;opacity:.85}
+@keyframes marquee{to{transform:translateX(-100%)}}
+[data-motion="reduzido"] .g-list{animation:none}[data-motion="reduzido"] .g-list[aria-hidden]{display:none}[data-motion="reduzido"] .g-track{mask-image:none;-webkit-mask-image:none}[data-motion="reduzido"] .g-list{flex-wrap:wrap;row-gap:20px;flex:1}
+@media (prefers-reduced-motion: reduce){:root:not([data-motion="normal"]) .g-list{animation:none}:root:not([data-motion="normal"]) .g-list[aria-hidden]{display:none}:root:not([data-motion="normal"]) .g-list{flex-wrap:wrap;row-gap:20px;flex:1}}
+@media (max-width:640px){.g-wrap{flex-direction:column;align-items:flex-start;gap:16px}}
+
+.case-card{border-radius:14px;padding:12px;margin:-12px;transition:background calc(.25s * var(--dur)),transform calc(.25s * var(--dur))}
+.case-card:hover{background:var(--surface);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.12)}
+.case-media{display:block;border-radius:12px;overflow:hidden;cursor:pointer}
+.case-media img{transition:transform calc(.5s * var(--dur)) cubic-bezier(.2,.8,.2,1)}
+.case-card:hover .case-media img{transform:scale(1.04)}
+.case-card:hover h3{color:var(--accent)}
+.case-card:focus-within{outline:3px solid var(--accent);outline-offset:4px}
+
+.book{position:relative;background-image:linear-gradient(90deg,rgba(0,0,0,.28) 0,rgba(255,255,255,.10) 14%,rgba(255,255,255,0) 38%,rgba(0,0,0,.08) 70%,rgba(0,0,0,.30) 100%),repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 2px,transparent 2px 5px)!important;padding:22px 10px 18px!important;align-items:center}
+.book::before,.book::after{content:"";position:absolute;left:8px;right:8px;height:6px;border-top:1.5px solid #D9B76A;border-bottom:1.5px solid #D9B76A;opacity:.85}
+.book::before{top:44px}.book::after{bottom:46px}
+.book small{text-align:center;letter-spacing:.04em}
+.book .selo{max-width:76px;max-height:18px;width:auto;height:auto;opacity:.95}
+.book .selo-txt{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;opacity:.95}
+.cover{background-size:cover!important;background-position:center!important}
+.page .actions{align-items:center}.btn{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}
+
+.bot{flex:none;width:140px;height:200px;margin-left:auto;margin-right:8px;position:relative}
+.bot svg{display:block;width:140px;height:200px;overflow:visible}
+.bot .scr{position:absolute;left:30px;top:12px;width:80px;height:60px;overflow:hidden;border-radius:6px}
+.face{position:absolute;inset:0;transition:transform calc(.12s * var(--dur))}
+.px{position:absolute;width:4px;height:4px;background:#F2C46D;box-shadow:0 0 4px rgba(242,196,109,.6)}
+.eyes{transform-origin:center 18px;transition:transform calc(.08s * var(--dur))}
+.bot.blink .eyes{transform:scaleY(.15)}
+.bot .rw{transform-origin:105px 104px;transform-box:view-box}
+.bot.waving .rw{animation:aceno calc(.5s * var(--dur)) ease-in-out infinite alternate}
+@keyframes aceno{from{transform:rotate(-14deg)}to{transform:rotate(12deg)}}
+[data-motion="reduzido"] .bot .rw{animation:none!important}
+@media (prefers-reduced-motion: reduce){:root:not([data-motion="normal"]) .bot .rw{animation:none!important}}
+.hero-grid{margin-top:auto;margin-bottom:64px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.feat{flex:0 1 340px;display:flex;gap:16px;align-items:stretch;padding:12px;border-radius:14px;background:rgba(25,23,31,.82);border:1px solid #3A3546;color:#F2F1F6;text-decoration:none;backdrop-filter:blur(6px);transition:transform calc(.25s * var(--dur)),border-color calc(.25s * var(--dur))}
+.feat:hover{opacity:1;transform:translateY(-4px);border-color:#7E7CCC}
+.feat img{width:92px;aspect-ratio:843/1000;object-fit:cover;border-radius:8px;flex:none}
+.feat .fx{display:flex;flex-direction:column;gap:6px;min-width:0}
+.feat .fk{font-family:'JetBrains Mono',monospace;font-size:10px;color:#7E7CCC;letter-spacing:.04em}
+.feat b{font-size:15px;line-height:1.3}
+.feat .fn{font-size:13px;color:#C4C2CE}.feat .fn strong{font-size:20px;color:#F2F1F6;letter-spacing:-.02em;margin-right:4px}
+.feat .fl{margin-top:auto;font-size:13px;font-weight:600;color:#7E7CCC}
+.book .lab{position:absolute;left:50%;bottom:calc(100% + 10px);transform:translate(-50%,6px);white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;padding:6px 10px;border-radius:8px;background:var(--ink);color:var(--bg);opacity:0;pointer-events:none;transition:opacity calc(.2s * var(--dur)),transform calc(.2s * var(--dur));z-index:3}
+.book:hover .lab,.book:focus-visible .lab{opacity:1;transform:translate(-50%,0) rotate(3deg)}
+.shelf{overflow:visible}
+.dmeta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.04em}
+.dnums{display:flex;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:12px}
+.dnums div{display:flex;flex-direction:column;min-width:90px}.dnums b{font-size:22px;letter-spacing:-.02em;line-height:1.1}.dnums span{font-size:12px;color:var(--text3)}
+.viewbar{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin:-24px 0 24px;position:relative}
+.seg{display:inline-flex;padding:4px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.seg button{font:inherit;font-size:14px;font-weight:600;border:0;background:transparent;color:var(--text2);padding:8px 16px;border-radius:999px;cursor:pointer;min-height:36px}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.skip{position:absolute;left:0;top:-44px;padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;transform:scale(0);transform-origin:left}
+.skip:focus{transform:none}
+.idx{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.idx li{display:grid;grid-template-columns:48px minmax(0,1.6fr) 80px 170px 160px auto;gap:16px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
+.idx .no{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent)}
+.idx .nm b{display:block;font-size:22px;letter-spacing:-.01em}.idx .nm span{color:var(--text3);font-size:14px}
+.idx .yr,.idx .stt{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text3)}
+.idx .num{font-weight:700;font-size:17px}
+.idx a{font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap}
+@media (max-width:760px){.idx li{grid-template-columns:36px 1fr auto}.idx .yr,.idx .stt{display:none}.idx .num{grid-column:2}}
+.trail{margin-top:8px}.trail .mono{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text3)}
+.trail ol{list-style:none;margin:10px 0 0;padding:0;display:flex;gap:0}
+.trail li{flex:1;display:flex;flex-direction:column;padding:12px 8px 0 0;border-top:2px solid var(--line);position:relative}
+.trail li::before{content:"";position:absolute;top:-6px;left:0;width:10px;height:10px;border-radius:999px;background:var(--line)}
+.trail li.now{border-color:var(--accent)}.trail li.now::before{background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 30%,transparent)}
+.trail b{font-size:14px}.trail small{font-size:12px;color:var(--text3)}
+.bot{cursor:default}
+@media (max-width:900px){.feat{flex-basis:100%}}
+.dshot{width:100%;aspect-ratio:1600/777;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--alt)}
+.btn[aria-disabled="true"]{background:transparent;border-color:var(--line);color:var(--text3);cursor:default}
+.idx .soon{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text3);white-space:nowrap}
+.open-book{position:relative}
+.xclose{position:absolute;top:-14px;right:-14px;z-index:3;width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.4);transition:transform calc(.2s * var(--dur)),border-color calc(.2s * var(--dur))}
+.xclose:hover{transform:rotate(90deg);border-color:var(--accent)}
+.read{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;color:var(--accent);text-decoration:none;padding:6px 0;border-bottom:2px solid color-mix(in srgb,var(--accent) 40%,transparent);transition:border-color calc(.2s * var(--dur))}
+.read i{font-style:normal;display:inline-block;transition:transform calc(.25s * var(--dur)) cubic-bezier(.2,.8,.2,1)}
+.read:hover{opacity:1;border-color:var(--accent)}.read:hover i{transform:translateX(6px)}
+.read[aria-disabled="true"]{color:var(--text3);border-color:transparent;font-family:'JetBrains Mono',monospace;font-size:12px;cursor:default}
+.minibar{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(15,14,20,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transform:translateY(-100%);transition:transform calc(.3s * var(--dur)) ease;font-family:'JetBrains Mono',monospace;font-size:13px}
+.minibar.show{transform:none}
+.minibar .in{max-width:1120px;margin:0 auto;padding:12px 32px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.minibar a{text-decoration:none;color:var(--ink)}.minibar .l{display:flex;gap:22px;align-items:center}.minibar .l a{color:var(--text2)}
+.minibar .cta{padding:7px 12px;border-radius:8px;background:#7E7CCC;color:#0F0E14!important}
+@media (max-width:760px){.minibar .l a:not(.cta){display:none}.minibar .in{padding:10px 18px}}
+.stage{transition:background calc(.45s * var(--dur))}.stage.closing{background:rgba(10,9,14,0)}
+</style>
+</head>
+<body>
+<div style="width: 100%; background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; line-height: 1.5">
+
+<div class="minibar" id="minibar" aria-hidden="true"><div class="in"><a href="#" id="toTop" aria-label="Voltar ao topo" style="display:flex;align-items:center;gap:8px"><img src="img/logo.svg" alt="Diéville" width="98" height="20" style="display:block"><span style="color:#7E7CCC">↑</span></a><span class="l"><a href="#projetos">Cases</a><a href="sobre.html">Sobre</a><a href="#log">Trajetória</a><a href="mentoria.html">Área do mentorado</a><a class="cta" href="#contato">Quero conversar</a></span></div></div>
+<!-- TOPO -->
+<header style="position: relative; height: 760px; overflow: hidden; background: #0F0E14">
+<img src="img/eu-setup.jpg" alt="Diéville trabalhando no setup, em frente aos monitores" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 75% 35%; opacity: 0.75">
+<div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,14,20,0.96) 0%, rgba(15,14,20,0.82) 45%, rgba(15,14,20,0.25) 100%)"></div>
+<div style="position: relative; max-width: 1120px; margin: 0 auto; padding: 24px 32px; color: #F2F1F6; height: 100%; box-sizing: border-box; display: flex; flex-direction: column">
+<nav style="display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 13px"><a href="index.html" aria-label="Diéville, início" style="display:flex;align-items:center;gap:10px;text-decoration:none"><img src="img/logo.svg" alt="Diéville" width="118" height="24" style="display:block"><span style="color: #7E7CCC">v2.0</span></a><span style="display: flex; gap: 24px; align-items: center"><a href="#projetos" style="text-decoration: none">Cases</a><a href="sobre.html" style="text-decoration: none">Sobre</a><a href="#log" style="text-decoration: none">Trajetória</a><a href="mentoria.html" style="text-decoration: none; color: #C4C2CE">Área do mentorado</a><a href="#contato" style="text-decoration: none; padding: 8px 14px; border-radius: 8px; background: #7E7CCC; color: #0F0E14">Quero conversar</a><button id="tMov" class="ico" aria-pressed="false" aria-label="Reduzir movimento">≋</button></span></nav>
+<div class="hero-grid"><div style="max-width: 620px; display: flex; flex-direction: column; gap: 20px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #7E7CCC"><span id="boot" aria-hidden="true"></span><span class="sr" id="bootSr">Product Designer sênior</span></div>
+<h1 style="margin: 0; font-size: 60px; line-height: 1.02; letter-spacing: -0.03em">Coleciono histórias.<br>Estruturo produtos que funcionam.</h1>
+<p style="margin: 0; font-size: 19px; color: #C4C2CE">Sou o Diéville, Product Designer sênior. Há mais de 10 anos crio estrutura onde ela ainda não existe, em fintech, healthtech, agrotech, foodtech e investimentos.</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap"><a href="#projetos" style="text-decoration: none; padding: 14px 24px; border-radius: 8px; background: #7E7CCC; color: #0F0E14; font-weight: 600">Ver os cases</a><a href="#contato" style="text-decoration: none; padding: 14px 24px; border-radius: 8px; border: 1.5px solid #F2F1F6; font-weight: 600">Quero conversar</a></div>
+</div>
+<a class="feat" href="vectag.html" aria-label="Case em destaque: Vect.Ag, crédito aprovado de 72 para 24 horas">
+<img src="img/capa-vectag.jpg" alt="">
+<span class="fx"><span class="fk">CASE EM DESTAQUE · AGROTECH · NO AR</span><b>Vect.Ag: crédito rural sem banco grande no meio</b><span class="fn"><strong>72h → 24h</strong> para aprovar o crédito</span><span class="fl">Ler o case →</span></span>
+</a>
+</div>
+</div>
+</header>
+<!-- PROVA RÁPIDA -->
+<section style="max-width: 1120px; margin: 0 auto; padding: 56px 32px 56px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); padding-bottom: 16px">ATRIBUTOS</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 240px; min-width: 0; padding: 20px 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px">
+<div style="font-size: 36px; font-weight: 700; letter-spacing: -0.02em">10+ anos</div>
+<div style="font-size: 14px; color: var(--text3)">desenhando produtos digitais</div>
+</div>
+<div style="flex: 1 1 240px; min-width: 0; padding: 20px 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px">
+<div style="font-size: 36px; font-weight: 700; letter-spacing: -0.02em">5 setores</div>
+<div style="font-size: 14px; color: var(--text3)">fintech, healthtech, agrotech, foodtech e investimentos</div>
+</div>
+<div style="flex: 1 1 240px; min-width: 0; padding: 20px 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px">
+<div style="font-size: 36px; font-weight: 700; letter-spacing: -0.02em">+150 mil</div>
+<div style="font-size: 14px; color: var(--text3)">usuários ativos no app GLIC</div>
+</div>
+</div>
+</section>
+
+<!-- LOGOS -->
+<section class="guildas" aria-labelledby="gTitle">
+<div class="g-wrap">
+<div class="g-label"><span class="mono" style="color:#7E7CCC">GUILDAS</span><span id="gTitle">Empresas por onde passei</span></div>
+<div class="g-track"><ul class="g-list"><li><img src="img/logo-boavista.png" alt="Boavista"></li><li><img src="img/logo-glic.png" alt="GLIC"></li><li><img src="img/logo-vectag.png" alt="Vect.Ag"></li><li><img src="img/logo-latam.png" alt="LATAM"></li><li><img src="img/logo-braile.png" alt="Braile Biomédica"></li><li><img src="img/logo-ceox.png" alt="CEOX"></li><li><img src="img/logo-cory.png" alt="Cory"></li></ul><ul class="g-list" aria-hidden="true"><li><img src="img/logo-boavista.png" alt="" data-a="Boavista"></li><li><img src="img/logo-glic.png" alt="" data-a="GLIC"></li><li><img src="img/logo-vectag.png" alt="" data-a="Vect.Ag"></li><li><img src="img/logo-latam.png" alt="" data-a="LATAM"></li><li><img src="img/logo-braile.png" alt="" data-a="Braile Biomédica"></li><li><img src="img/logo-ceox.png" alt="" data-a="CEOX"></li><li><img src="img/logo-cory.png" alt="" data-a="Cory"></li></ul></div>
+</div>
+</section>
+
+<!-- PROJETOS -->
+<section id="projetos" style="max-width: 1120px; margin: 0 auto; padding: 88px 32px">
+<div style="display: flex; flex-direction: column; gap: 12px; padding-bottom: 40px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">PRATELEIRA 1 · CASES</div>
+<h2 style="margin: 0; font-size: 40px; line-height: 1.1; letter-spacing: -0.01em">Cada case é um livro. Puxe um.</h2>
+<p style="margin: 0; font-size: 18px; color: var(--text2); max-width: 640px">Do mais recente ao mais antigo. Abra um livro para ver meu papel, a decisão que mudou o projeto e o resultado. Se algo ainda não foi medido, eu aviso.</p>
+</div>
+<div class="viewbar"><a class="skip" href="#lista">Pular para a lista de cases</a><div class="seg" role="group" aria-label="Como ver os cases"><button type="button" id="vEst" aria-pressed="true">Estante</button><button type="button" id="vLis" aria-pressed="false">Lista</button></div><p id="vHint" style="margin: 0; color: var(--text2)">Passe o mouse e puxe um livro. No teclado, use Tab e Enter.</p></div>
+<ol class="idx" id="lista" hidden></ol>
+<div class="shelf" id="shelf"><div class="row" id="row" role="list" aria-label="Cases, do mais recente ao mais antigo"></div></div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<span id="depo-anchor"></span>
+<section style="max-width: 1120px; margin: 0 auto; padding: 88px 32px">
+<div style="display: flex; flex-direction: column; gap: 12px; padding-bottom: 40px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">CONQUISTAS · DEPOIMENTOS</div>
+<h2 style="margin: 0; font-size: 36px; line-height: 1.15; letter-spacing: -0.01em">Conquistas desbloqueadas</h2>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px"><figure style="flex: 1 1 320px; min-width: 0; margin: 0; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; display: flex; flex-direction: column; gap: 14px">
+<blockquote style="margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; color: var(--ink)">“O projeto era extremamente organizado, bonito e coerente.”</blockquote>
+<p style="margin: 0; font-size: 14px; color: var(--text2)">Tive o privilégio de trabalhar ao lado do Diéville em um projeto com uma das regras de negócio mais complexas com as quais já tive contato. Desde o início, quando ele fez o meu Onboarding no projeto, percebi que ele era uma das pessoas que mais dominava os detalhes do funcionamento do sistema. Isso fez uma enorme diferença para iniciar meu trabalho como desenvolvedora na equipe. Admiro muito sua comunicação objetiva e fácil de entender, o que facilitava muito o alinhamento entre as sprints. Outro ponto que gostaria de destacar é o protótipo no Figma que ele produziu e que tive a oportunidade de desenvolver. O projeto era extremamente organizado, bonito e coerente, sempre trazendo todas as informações de que eu precisava para implementar as telas com segurança e qualidade. Ele é muito dedicado e sempre esteve disponível para dar suporte a todos da equipe, o que permitiu avançar e finalizar as tarefas mais difíceis com mais agilidade. Hoje considero o Dieville uma referência como Product Designer.</p>
+<figcaption style="display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 8px; border-top: 1px solid var(--chip)">
+<img src="img/av-eliria.jpg" alt="" style="width: 44px; height: 44px; border-radius: 999px; object-fit: cover; flex: none">
+<div><div style="font-weight: 600">Eliria Mirna Dias</div><div style="font-size: 13px; color: var(--text3)">Full Stack Software Engineer · recomendação no LinkedIn, maio de 2025</div></div>
+</figcaption>
+</figure><figure style="flex: 1 1 320px; min-width: 0; margin: 0; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; display: flex; flex-direction: column; gap: 14px">
+<blockquote style="margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; color: var(--ink)">“Realizava alinhamentos antes mesmo de começar a implementar.”</blockquote>
+<p style="margin: 0; font-size: 14px; color: var(--text2)">Diéville me mostrou a importância de um design bem organizado e focado no entendimento completo de cada necessidade. Não me refiro apenas às necessidades do cliente, mas também à equipe que trabalha com ele. Ele sempre se preocupou em buscar informações e deixá-las o mais claras possível para que nós, da equipe de desenvolvimento, pudéssemos entender o que realmente traria valor para nosso cliente. Ele estava sempre preocupado com a qualidade de suas entregas e realizava alinhamentos antes mesmo de começar a implementá-las. Foi um enorme prazer trabalhar com ele.</p>
+<figcaption style="display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 8px; border-top: 1px solid var(--chip)">
+<img src="img/av-carlos.jpg" alt="" style="width: 44px; height: 44px; border-radius: 999px; object-fit: cover; flex: none">
+<div><div style="font-weight: 600">Carlos Henrique</div><div style="font-size: 13px; color: var(--text3)">Desenvolvedor Pleno · recomendação no LinkedIn, abril de 2023</div></div>
+</figcaption>
+</figure><figure style="flex: 1 1 320px; min-width: 0; margin: 0; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; display: flex; flex-direction: column; gap: 14px">
+<blockquote style="margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; color: var(--ink)">“Uma atenção aos mínimos detalhes, em cada projeto.”</blockquote>
+<p style="margin: 0; font-size: 14px; color: var(--text2)">O Diéville é um excelente profissional, comprometido e sempre disposto a evoluir e aprender coisas novas. Possui um talento nato e uma atenção aos mínimos detalhes, e isso está sempre presente em cada projeto que ele participa. Sempre me impressiona a forma criativa como ele consegue resolver os mais diversos problemas do desenvolvimento de projetos. Sem dúvidas um profissional que agrega muito por onde passa, e não foi diferente comigo, sempre que possível me dá feedback do que posso melhorar!</p>
+<figcaption style="display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 8px; border-top: 1px solid var(--chip)">
+<img src="img/av-ulisses.jpg" alt="" style="width: 44px; height: 44px; border-radius: 999px; object-fit: cover; flex: none">
+<div><div style="font-weight: 600">Ulisses Presoto</div><div style="font-size: 13px; color: var(--text3)">Analista de experiência do usuário no Bradesco · recomendação no LinkedIn, setembro de 2022</div></div>
+</figcaption>
+</figure></div>
+</section>
+
+<!-- CRIEI DO ZERO -->
+<section id="do-zero" style="max-width: 1120px; margin: 0 auto; padding: 0 32px 88px">
+<div style="display: flex; flex-direction: column; gap: 12px; padding-bottom: 32px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">INVENTÁRIO · BOAVISTA</div>
+<h2 style="margin: 0; font-size: 40px; line-height: 1.1; letter-spacing: -0.01em">O que eu criei do zero</h2>
+<p style="margin: 0; font-size: 18px; color: var(--text2); max-width: 640px">Quando cheguei, não havia design system, handoff nem documentação central. Hoje existem, e o front transforma os componentes direto em código.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px"><div style="flex: 1 1 300px; min-width: 0; border-top: 2px solid var(--ink); padding-top: 16px; display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 20px; font-weight: 600">Design system</div>
+<p style="margin: 0; color: var(--text2)">Tokens ligados ao código do front, com a paleta antiga revisada e ampliada.</p>
+</div><div style="flex: 1 1 300px; min-width: 0; border-top: 2px solid var(--ink); padding-top: 16px; display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 20px; font-weight: 600">Fonte base</div>
+<p style="margin: 0; color: var(--text2)">Troquei a fonte da marca por Roboto nas telas novas. Tabelas ficaram mais fáceis de ler.</p>
+</div><div style="flex: 1 1 300px; min-width: 0; border-top: 2px solid var(--ink); padding-top: 16px; display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 20px; font-weight: 600">Componentes</div>
+<p style="margin: 0; color: var(--text2)">Date picker completo, totalizador, drawer e padrão de tabela, com catálogo em documentação contínua.</p>
+</div><div style="flex: 1 1 300px; min-width: 0; border-top: 2px solid var(--ink); padding-top: 16px; display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 20px; font-weight: 600">Handoff</div>
+<p style="margin: 0; color: var(--text2)">Card no Figma e um documento com as regras e as decisões de cada entrega.</p>
+</div><div style="flex: 1 1 300px; min-width: 0; border-top: 2px solid var(--ink); padding-top: 16px; display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 20px; font-weight: 600">Ferramentas</div>
+<p style="margin: 0; color: var(--text2)">BookStack para documentação e Clarity para medir uso.</p>
+</div><div style="flex: 1 1 300px; min-width: 0; border-top: 2px solid var(--ink); padding-top: 16px; display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 20px; font-weight: 600">Processo com IA</div>
+<p style="margin: 0; color: var(--text2)">Meu processo virou instruções para IA, com fases, tamanhos de demanda e registro de decisões.</p>
+</div></div>
+</section>
+
+<!-- FICHA -->
+<section id="ficha" style="background: var(--alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line)">
+<div style="max-width: 1120px; margin: 0 auto; padding: 88px 32px; display: flex; flex-wrap: wrap; gap: 48px; align-items: stretch">
+<div style="flex: 1 1 380px; min-width: 0; display: grid; grid-template-columns: 1.15fr 1fr; grid-auto-rows: 228px; gap: 12px"><img src="img/eu-retrato.jpg" alt="Retrato de Diéville" style="object-position: 50% 20%; grid-row: span 2; width: 100%; height: 100%; object-fit: cover; border-radius: 14px; border: 2px solid var(--accent)"><img src="img/jogo-ficha.jpg" alt="Ficha de personagem de RPG" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px"><img src="img/jogo-tabuleiro.jpg" alt="Partida de RPG de tabuleiro" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px"></div>
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent)">FICHA DO PERSONAGEM</div>
+<h2 style="margin: 0 0 16px; font-size: 40px; line-height: 1.1">Diéville Leandro</h2>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">CLASSE</span><span style="text-align: right">Product Designer sênior, generalista</span></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">BASE</span><span style="text-align: right">Fortaleza, CE</span></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">ORIGEM</span><span style="text-align: right">Engenharia de Software e Artes Visuais</span></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">XP</span><span style="text-align: right">10+ anos, 5 setores</span></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">HABILIDADE PASSIVA</span><span style="text-align: right">Estruturo o que ainda não existe</span></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">HABILIDADES ATIVAS</span><span style="text-align: right">Discovery, design system, handoff, IA no processo</span></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">PARTY ATUAL</span><span style="text-align: right">5 squads na Boavista, como único PD</span></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">MENTOR</span><span style="text-align: right"><a href="sobre.html#mentoria" style="text-decoration: none; color: var(--accent)">1 pessoa em acompanhamento →</a></span></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">INVENTÁRIO</span><span style="text-align: right">Figma, Claude, BookStack, Clarity, HTML e CSS</span></div>
+
+</div>
+<div style="flex: 1 1 100%; display: flex; flex-direction: column"><div class="trail" aria-label="Trajetória, da primeira à atual"><span class="mono">TRAJETÓRIA</span><ol><li><b>Whiletrue</b><small>2021 · freela UI</small></li><li><b>GLIC</b><small>2022 · healthtech</small></li><li><b>Quiker</b><small>2022 a 2025</small></li><li class="now"><b>Boavista</b><small>2025 · agora</small></li></ol></div>
+<a href="#log" style="margin-top: 16px; align-self: flex-start; font-weight: 600; color: var(--accent); text-decoration: none">Ver os pontos de salvamento →</a></div>
+</div>
+</section>
+<!-- FORA DO FIGMA -->
+<section id="fora-do-figma" style="background: var(--deep); color: #F2F2EE">
+<div style="max-width: 1120px; margin: 0 auto; padding: 96px 32px">
+<div style="display: flex; flex-direction: column; gap: 12px; padding-bottom: 48px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B4B9C2">ÁREA SECRETA · FORA DO FIGMA</div>
+<h2 style="margin: 0; font-size: 44px; line-height: 1.1; letter-spacing: -0.01em">Livros, figures e o setup</h2>
+<p style="margin: 0; font-size: 18px; color: #C9CDD4; max-width: 640px">Livros desde a adolescência, action figures há 12 anos e RPG com os amigos. Todo jogo bom é um sistema bem desenhado.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<a href="sobre.html#fora-do-figma" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit">
+<img src="img/estante-completa.jpg" alt="Estante com livros, quadrinhos e action figures" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px; display: block">
+<span style="font-weight: 600; font-size: 18px">A estante</span>
+<div style="color: #C9CDD4; font-size: 15px">Design e produto dividem prateleira com quadrinhos e mangás.</div>
+</a><a href="sobre.html#fora-do-figma" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit">
+<img src="img/setup-mesa.jpg" alt="Mesa de trabalho com dois monitores e figures" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px; display: block">
+<span style="font-weight: 600; font-size: 18px">O setup</span>
+<div style="color: #C9CDD4; font-size: 15px">Onde o trabalho acontece, com as figures de plateia.</div>
+</a><a href="sobre.html#fora-do-figma" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit">
+<img src="img/fig-favorita.jpg" alt="Figure de cavaleiro de armadura com espada e escudo" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px; display: block">
+<span style="font-weight: 600; font-size: 18px">A peça favorita</span>
+<div style="color: #C9CDD4; font-size: 15px">Um cavaleiro de armadura e escudo. Também fotografo as peças fora da prateleira.</div>
+</a>
+</div>
+<a href="sobre.html#fora-do-figma" style="display: inline-block; margin-top: 32px; padding: 14px 24px; border-radius: 8px; border: 1.5px solid #F2F2EE; color: #F2F2EE; text-decoration: none; font-weight: 600">Ver a estante completa →</a>
+</div>
+</section>
+
+<!-- LINKEDIN -->
+<section style="max-width: 1120px; margin: 0 auto; padding: 88px 32px">
+<div style="display: flex; flex-direction: column; gap: 12px; padding-bottom: 32px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">DIÁRIO DE CAMPANHA · LINKEDIN</div>
+<h2 style="margin: 0; font-size: 36px; line-height: 1.15; letter-spacing: -0.01em">Penso em voz alta no LinkedIn</h2>
+<p style="margin: 0; font-size: 18px; color: var(--text2); max-width: 640px">IA no design, processo e o que aprendo criando estrutura onde não havia.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px"><a href="https://lnkd.in/p/dhTVFpgg" target="_blank" rel="noopener" style="flex: 1 1 300px; min-width: 0; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 12px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent)">IA NO PROCESSO</div>
+<div style="font-size: 20px; font-weight: 600; line-height: 1.3">Velocidade sem critério só faz você errar mais rápido.</div>
+<p style="margin: 0; font-size: 15px; color: var(--text2)">Transformei meu processo de design em instruções que uma IA consegue seguir. O ganho foi ela não me deixar pular etapas.</p>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--text3); margin-top: auto"><span>9 reações</span><span> Ler no LinkedIn ↗</span></div>
+</a><a href="https://lnkd.in/p/dznWJss5" target="_blank" rel="noopener" style="flex: 1 1 300px; min-width: 0; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 12px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent)">GENERALISTA</div>
+<div style="font-size: 20px; font-weight: 600; line-height: 1.3">Ser generalista é saber quando aprofundar e quando ser rápido.</div>
+<p style="margin: 0; font-size: 15px; color: var(--text2)">Único PD entre squads distintas: uma pede pesquisa estruturada, outra uma decisão em 24h.</p>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--text3); margin-top: auto"><span>30 reações · 857 impressões</span><span> Ler no LinkedIn ↗</span></div>
+</a><a href="https://lnkd.in/p/dEpPiKsP" target="_blank" rel="noopener" style="flex: 1 1 300px; min-width: 0; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 12px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent)">GESTÃO DE DELIVERY</div>
+<div style="font-size: 20px; font-weight: 600; line-height: 1.3">A dor não é de tecnologia, é de confiança.</div>
+<p style="margin: 0; font-size: 15px; color: var(--text2)">O lojista fecha o mês sem saber quanto sobrou. Como desenhar um fluxo que aproxime o que a plataforma informa do que caiu na conta.</p>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--text3); margin-top: auto"><span>post recente</span><span> Ler no LinkedIn ↗</span></div>
+</a></div>
+</section>
+
+<!-- LOG -->
+<section id="log" style="max-width: 1120px; margin: 0 auto; padding: 0 32px 88px; display: flex; flex-wrap: wrap; gap: 48px">
+<div style="flex: 1 1 420px; min-width: 0"><div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); padding-bottom: 8px">LOG DE MISSÕES · TRAJETÓRIA</div><h2 style="margin: 0 0 24px; font-size: 40px; line-height: 1.1">Pontos de salvamento</h2><div style="display: flex; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); flex: 0 0 88px">AGORA</span><div><b>Boavista · fintech</b><div style="color: var(--text2)">Senior Product Designer desde 2025. Design system, handoff e IA no processo, em 5 squads.</div></div></div><div style="display: flex; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); flex: 0 0 88px">2026</span><div><b>Dieville Watches</b><div style="color: var(--text2)">Produto próprio, em paralelo, construído com IA.</div></div></div><div style="display: flex; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); flex: 0 0 88px">2022 A 2025</span><div><b>Quiker</b><div style="color: var(--text2)">Product Designer numa empresa de vários clientes: agrotech (Vect.Ag), fintech, healthtech e investimentos, com projetos para LATAM, Braile, CEOX e Cory.</div></div></div><div style="display: flex; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); flex: 0 0 88px">2022</span><div><b>GLIC · healthtech</b><div style="color: var(--text2)">Primeiro cargo de Product Designer, como júnior. App e web para pessoas com diabetes.</div></div></div><div style="display: flex; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); flex: 0 0 88px">2021</span><div><b>Whiletrue</b><div style="color: var(--text2)">Freela de UI numa plataforma gamificada de ensino para devs. Onde comecei.</div></div></div></div>
+<div style="flex: 1 1 360px; min-width: 0; display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 210px; gap: 12px">
+<img src="img/eu-costas.jpg" alt="Diéville de costas organizando post-its em uma parede de discovery" style="width: 100%; height: 100%; object-fit: cover; object-position: 45% 30%; border-radius: 10px; grid-row: span 2">
+<img src="img/gameboy.jpg" alt="Console portátil roxo nas mãos de Diéville" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px">
+<img src="img/pegboard.jpg" alt="Painel preto na parede com fones, console, Pokébola e objetos retrô" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px">
+</div>
+</section>
+<!-- CONTATO -->
+<section id="contato" style="background: #7E7CCC; color: #0F0E14">
+<div style="max-width: 1120px; margin: 0 auto; padding: 80px 32px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; opacity: 0.85">PRESS START</div>
+<h2 style="margin: 0; font-size: 44px; line-height: 1.1; letter-spacing: -0.01em">Vamos jogar no mesmo time?</h2>
+<p style="margin: 0; font-size: 18px">Se o seu produto precisa de alguém que decide rápido e ajusta sempre, me chama.</p>
+</div>
+<div style="flex: 0 1 360px; display: flex; flex-direction: column; gap: 12px">
+<a href="mailto:dieville@gmail.com" style="text-decoration: none; padding: 16px 24px; border-radius: 8px; background: var(--surface); color: var(--ink); font-weight: 600; text-align: center">dieville@gmail.com</a>
+<a href="https://linkedin.com/in/dieville" style="text-decoration: none; padding: 16px 24px; border-radius: 8px; border: 1.5px solid #0F0E14; font-weight: 600; text-align: center">linkedin.com/in/dieville</a>
+<a href="https://wa.me/5585997635522" target="_blank" rel="noopener" style="text-decoration: none; padding: 16px 24px; border-radius: 8px; border: 1.5px solid #0F0E14; font-weight: 600; text-align: center">WhatsApp (85) 99763-5522</a>
+</div>
+</div>
+</section>
+
+<!-- RODAPÉ -->
+<footer style="max-width: 1120px; margin: 0 auto; padding: 32px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 14px; color: var(--text3)">
+<span>Diéville Leandro, Product Designer © 2026</span>
+<span style="font-family: 'JetBrains Mono', monospace">v2.0 · atualizado em nov 2026</span>
+</footer>
+
+</div>
+
+<div class="stage" id="stage" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+<div class="open-book" id="openBook">
+<button class="xclose" id="dClose" aria-label="Fechar e devolver o livro à estante"><span aria-hidden="true">×</span></button>
+<div class="cover" id="dCover"><span class="mono" style="color:#fff;opacity:.8" id="dTag"></span><div><div style="font-size:32px;font-weight:700;line-height:1.1" id="dTitle"></div><div id="dSub" style="opacity:.85"></div></div></div>
+<div class="page">
+<div class="dmeta" id="dMeta"></div>
+<img class="dshot" id="dShot" alt="">
+<dl>
+<div><dt>PAPEL</dt><dd id="dPapel"></dd></div>
+<div><dt>DECISÃO-CHAVE</dt><dd id="dDec"></dd></div>
+<div><dt>RESULTADO</dt><dd id="dRes"></dd></div>
+</dl>
+<div class="dnums" id="dNums"></div>
+<div class="actions"><a class="read" href="#" id="dLink">Ler o case</a></div>
+</div>
+</div>
+</div>
+<div class="sr" aria-live="polite" id="live"></div>
+
+
+<script>
+const cases=[
+{n:'Boavista',shot:'img/case-boavista.jpg',img:'img/capa-boavista.jpg',logo:'img/logo-boavista.png',sub:'Jornada de Implantação',tag:'EM PRODUÇÃO · 2025',c:'#4A48A0',h:300,emp:'Boavista · fintech',ano:'2025',st:'em produção · sob NDA',lab:'sob NDA',href:'',p:'Único Product Designer, do discovery ao delivery',d:'Retomar a solução pausada e reunir tudo em uma jornada única, priorizada junto com os devs',r:'Em produção, testada pelo time de implantação e em ajuste contínuo',nums:[]},
+{n:'Watches',shot:'img/case-watches.jpg',img:'img/capa-watches.jpg',logo:'',sub:'Produto próprio com IA',tag:'EM ANDAMENTO · 2026',c:'#5E5CB8',h:270,emp:'Dieville Watches · produto próprio',ano:'2026',st:'em andamento',lab:'13 de 20 ativos',href:'watches.html',p:'Produto, design e código com IA, com aprovação minha em cada decisão',d:'Home em torno de uma pergunta: "O que vou assistir hoje?"',r:'Em validação com amigos convidados',nums:[['20','convidados'],['13','adicionaram títulos'],['8','chegaram a 5 títulos']]},
+{n:'GLIC',shot:'img/case-glic.jpg',img:'img/capa-glic.jpg',logo:'img/logo-glic.png',sub:'Fluxo principal do app',tag:'NO AR · HEALTHTECH',c:'#33316B',h:290,emp:'GLIC · healthtech',ano:'',st:'no ar',lab:'+150 mil usuários',href:'glic.html',p:'Product Designer, do workshop ao protótipo de alta fidelidade',d:'Priorizar o Fluxo de Refeição',r:'Validado com 5 usuários no Design Sprint',nums:[['+150 mil','usuários ativos'],['12','entrevistas'],['5 dias','de Design Sprint']]},
+{n:'Vect.Ag',shot:'img/case-vectag.jpg',img:'img/capa-vectag.jpg',logo:'img/logo-vectag.png',sub:'Crédito rural',tag:'NO AR · AGROTECH',c:'#403E88',h:250,emp:'Vect.Ag · agrotech, pela Quiker',ano:'2023',st:'no ar',lab:'-73% retrabalho',href:'vectag.html',p:'Product Designer, ponta a ponta, do discovery ao pós-lançamento',d:'Desenhar para o agrônomo da cooperativa, o usuário-chave descoberto em campo',r:'Aprovação do crédito caiu de 72 para 24 horas',nums:[['72h → 24h','para aprovar o crédito'],['-73%','de retrabalho'],['+31%','de solicitações']]}];
+const row=document.getElementById('row');
+const fill=(w,h)=>{const f=document.createElement('div');f.className='filler';f.style.cssText=`width:${w}px;height:${h}px`;f.setAttribute('aria-hidden','true');return f};
+row.append(fill(18,180),fill(24,210));
+cases.forEach((k,i)=>{const b=document.createElement('button');b.className='book';b.setAttribute('role','listitem');b.style.cssText=`height:${k.h}px;background:${k.c}`;
+b.setAttribute('aria-label',`Abrir o case ${k.n}: ${k.sub}. ${k.lab}`);b.innerHTML=`<span class="lab" aria-hidden="true">${k.lab}</span><small>${k.tag.split(' · ')[0]}</small><span class="t">${k.n}</span>${k.logo?`<img class="selo" src="${k.logo}" alt="">`:'<span class="selo-txt">DIEVILLE</span>'}`;
+b.addEventListener('click',()=>openCase(i,b));row.append(b)});
+row.append(fill(14,170),fill(20,230));
+const nx=document.createElement('div');nx.className='next';nx.setAttribute('role','listitem');nx.innerHTML='<span>próximo case em produção</span>';row.append(nx);
+const st=document.createElement('div');st.className='stack';st.setAttribute('aria-hidden','true');st.innerHTML='<i style="width:110px;background:#33316B"></i><i style="width:96px;background:#5E5CB8"></i><i style="width:120px;background:#3A3546"></i><i style="width:104px;background:#4A48A0"></i>';row.append(st);
+
+const pix=(pts,ox,oy)=>pts.map(([x,y])=>`<i class="px" style="left:${ox+x*4}px;top:${oy+y*4}px"></i>`).join('');
+const eyeP=[[0,0],[1,0],[2,0],[0,1],[2,1],[0,2],[1,2],[2,2]];
+const smile=[[0,0],[5,0],[1,1],[2,1],[3,1],[4,1]];
+const wow=[[1,0],[2,0],[0,1],[3,1],[1,2],[2,2]];
+const mouthHTML=m=>m==='wow'?pix(wow,32,38):pix(smile,28,40);
+const faceHTML=m=>`<div class="eyes">${pix(eyeP,14,14)}${pix(eyeP,54,14)}</div><div class="mouth">${mouthHTML(m)}</div>`;
+const bot=document.createElement('div');bot.className='bot';bot.setAttribute('aria-hidden','true');
+bot.innerHTML='<svg viewBox="0 0 140 200" aria-hidden="true"><defs><linearGradient id="rbm" x1="0" x2="1"><stop offset="0" stop-color="#3B3F5C"/><stop offset=".35" stop-color="#8E93B3"/><stop offset=".55" stop-color="#C9CCDF"/><stop offset="1" stop-color="#4A4E6E"/></linearGradient><linearGradient id="rbp" x1="0" x2="1"><stop offset="0" stop-color="#3A3870"/><stop offset=".45" stop-color="#7E7CCC"/><stop offset="1" stop-color="#2E2C5C"/></linearGradient></defs><path d="M58 84 C50 96 54 106 60 112" fill="none" stroke="#1B1E33" stroke-width="4"/><path d="M82 84 C92 96 86 106 80 112" fill="none" stroke="#7E7CCC" stroke-width="3"/><rect x="22" y="4" width="96" height="80" rx="10" fill="url(#rbp)" stroke="#1B1E33" stroke-width="2"/><rect x="28" y="10" width="84" height="64" rx="7" fill="#141629" stroke="#5E5CB8" stroke-width="2"/><rect x="16" y="28" width="8" height="26" rx="3" fill="url(#rbm)"/><rect x="116" y="28" width="8" height="26" rx="3" fill="url(#rbm)"/><rect x="104" y="76" width="6" height="3" fill="#7CE3A8"/><rect x="62" y="84" width="16" height="10" fill="url(#rbm)"/><path d="M40 94 H100 L95 150 H45 Z" fill="url(#rbm)" stroke="#1B1E33" stroke-width="2"/><rect x="56" y="106" width="28" height="20" rx="3" fill="#2A2F4A"/><circle cx="64" cy="116" r="4" fill="#7E7CCC"/><rect x="71" y="112" width="9" height="3" fill="#F2C46D"/><rect x="71" y="118" width="9" height="3" fill="#F2C46D"/><g fill="#2A2F4A"><circle cx="45" cy="100" r="1.8"/><circle cx="95" cy="100" r="1.8"/><circle cx="48" cy="144" r="1.8"/><circle cx="92" cy="144" r="1.8"/></g><circle cx="36" cy="102" r="8" fill="url(#rbm)" stroke="#1B1E33"/><rect x="30" y="104" width="12" height="40" rx="5" fill="url(#rbm)"/><circle cx="36" cy="148" r="6" fill="#2A2F4A"/><path d="M31 153 v8 M41 153 v8" stroke="#C9CCDF" stroke-width="3.5" stroke-linecap="round"/><g class="rw"><circle cx="105" cy="102" r="8" fill="url(#rbm)" stroke="#1B1E33"/><rect x="99" y="60" width="12" height="42" rx="5" fill="url(#rbm)"/><circle cx="105" cy="56" r="6" fill="#2A2F4A"/><path d="M99 52 v-8 M105 50 v-9 M111 52 v-8" stroke="#C9CCDF" stroke-width="3.5" stroke-linecap="round"/></g><rect x="48" y="150" width="15" height="18" rx="3" fill="#2A2F4A"/><rect x="77" y="150" width="15" height="18" rx="3" fill="#2A2F4A"/><rect x="50" y="168" width="11" height="16" fill="url(#rbm)"/><rect x="79" y="168" width="11" height="16" fill="url(#rbm)"/><path d="M61 172 C66 178 74 178 79 172" fill="none" stroke="#7E7CCC" stroke-width="2"/><rect x="38" y="182" width="32" height="18" rx="5" fill="url(#rbp)"/><rect x="70" y="182" width="32" height="18" rx="5" fill="url(#rbp)"/><rect x="41" y="194" width="26" height="3" fill="#1B1E33"/><rect x="73" y="194" width="26" height="3" fill="#1B1E33"/></svg><div class="scr"><div class="face" id="face">'+faceHTML('smile')+'</div></div>';row.append(bot);
+
+const setMouth=m=>{const mm=document.querySelector('#face .mouth');if(mm)mm.innerHTML=mouthHTML(m)};
+row.addEventListener('pointerover',e=>{if(e.target.closest('.book'))setMouth('wow')});
+row.addEventListener('pointerout',e=>{if(e.target.closest('.book'))setMouth('smile')});
+row.addEventListener('focusin',e=>{if(e.target.closest('.book'))setMouth('wow')});
+row.addEventListener('focusout',()=>setMouth('smile'));
+setInterval(()=>{if(still())return;bot.classList.add('blink');setTimeout(()=>bot.classList.remove('blink'),140)},3800);
+bot.addEventListener('pointerenter',()=>{if(!still())bot.classList.add('waving')});bot.addEventListener('pointerleave',()=>bot.classList.remove('waving'));
+const shelf=document.getElementById('shelf');const root=document.documentElement;
+const still=()=>getComputedStyle(root).getPropertyValue('--dur').trim()==='0';
+document.addEventListener('pointermove',e=>{
+ const r=shelf.getBoundingClientRect();
+ shelf.style.setProperty('--mx',(e.clientX-r.left)+'px');shelf.style.setProperty('--my',(e.clientY-r.top)+'px');
+ {const f=document.getElementById('face');if(f){const r2=f.getBoundingClientRect();const dx=Math.max(-1,Math.min(1,(e.clientX-(r2.left+r2.width/2))/400)),dy=Math.max(-1,Math.min(1,(e.clientY-(r2.top+r2.height/2))/300));f.style.transform=still()?'none':`translate(${(dx*5).toFixed(1)}px,${(dy*4).toFixed(1)}px)`}}
+});
+
+const stage=document.getElementById('stage'),ob=document.getElementById('openBook'),live=document.getElementById('live');
+let lastBtn=null,flyer=null;
+const $=id=>document.getElementById(id);
+function openCase(i,btn){
+ const k=cases[i];lastBtn=btn;cur=i;
+ $('dTag').textContent=k.tag;$('dTitle').textContent=k.n;$('dSub').textContent=k.sub;$('dPapel').textContent=k.p;$('dDec').textContent=k.d;$('dRes').textContent=k.r;$('dMeta').textContent=[k.emp,k.ano,k.st].filter(Boolean).join(' · ');$('dNums').innerHTML=k.nums.map(([v,l])=>`<div><b>${v}</b><span>${l}</span></div>`).join('');$('dNums').hidden=!k.nums.length;$('dShot').src=k.shot;$('dShot').alt=`Tela do ${k.n}`;const L=$('dLink');L.innerHTML=k.href?'Ler o case <i aria-hidden="true">→</i>':'Case em breve';if(k.href){L.href=k.href;L.removeAttribute('aria-disabled')}else{L.removeAttribute('href');L.setAttribute('aria-disabled','true');L.setAttribute('tabindex','0')}$('dCover').style.background=`linear-gradient(180deg,rgba(15,14,20,.55) 0%,rgba(15,14,20,.05) 35%,rgba(15,14,20,.15) 55%,rgba(15,14,20,.85) 100%), url(${k.img}) center/cover, ${k.c}`;
+ stage.classList.add('open');ob.classList.remove('show');
+ const r=btn.getBoundingClientRect();
+ if(!still()){
+  flyer=document.createElement('div');flyer.className='flyer';flyer.style.cssText=`left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;background:url(${k.img}) center/cover, ${k.c}`;document.body.append(flyer);btn.classList.add('lifted');
+  const t=ob.getBoundingClientRect();
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{flyer.style.left=t.left+'px';flyer.style.top=t.top+'px';flyer.style.width=(t.width*0.43)+'px';flyer.style.height=t.height+'px';flyer.style.borderRadius='10px 0 0 10px'}));
+  setTimeout(()=>{ob.classList.add('show');flyer&&flyer.remove();flyer=null},560);
+ } else ob.classList.add('show');
+ live.textContent=`Case ${k.n} aberto`;setTimeout(()=>$('dLink').focus(),still()?0:580);
+}
+function closeCase(instant){
+ const done=()=>{stage.classList.remove('open','closing');ob.classList.remove('show');if(flyer){flyer.remove();flyer=null}
+  if(lastBtn){lastBtn.classList.remove('lifted');if(instant!==true)lastBtn.focus()}live.textContent='Livro devolvido à estante'};
+ if(instant===true||still()||!lastBtn){done();return}
+ const k=cases[cur],c=$('dCover').getBoundingClientRect(),r=lastBtn.getBoundingClientRect();
+ if(flyer)flyer.remove();
+ flyer=document.createElement('div');flyer.className='flyer';
+ flyer.style.cssText=`left:${c.left}px;top:${c.top}px;width:${c.width}px;height:${c.height}px;border-radius:10px 0 0 10px;background:url(${k.img}) center/cover, ${k.c}`;
+ document.body.append(flyer);ob.classList.remove('show');stage.classList.add('closing');
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{flyer.style.left=r.left+'px';flyer.style.top=r.top+'px';flyer.style.width=r.width+'px';flyer.style.height=r.height+'px';flyer.style.borderRadius='6px 6px 2px 2px';flyer.style.background=k.c}));
+ setTimeout(done,560);
+}
+$('dClose').onclick=()=>closeCase(false);
+stage.addEventListener('click',e=>{if(e.target===stage)closeCase(false)});
+let cur=0;$('dLink').addEventListener('click',e=>{if(!cases[cur].href)e.preventDefault()});
+document.addEventListener('keydown',e=>{
+ if(!stage.classList.contains('open'))return;
+ if(e.key==='Escape')closeCase(false);
+ if(e.key==='Tab'){const f=[$('dLink'),$('dClose')].filter(x=>x.getAttribute('aria-disabled')!=='true');const i=f.indexOf(document.activeElement);e.preventDefault();f[(i+(e.shiftKey?-1:1)+f.length)%f.length].focus()}
+});
+
+root.dataset.theme='escuro';
+$('tMov').onclick=e=>{const on=root.dataset.motion!=='reduzido';root.dataset.motion=on?'reduzido':'normal';e.currentTarget.setAttribute('aria-pressed',on);row.style.setProperty('--tx',0);row.style.setProperty('--ty',0)};
+
+/* boot do hero: completo na primeira visita, curto nas seguintes, pulável */
+(function(){
+ const el=document.getElementById('boot');const txt='> carregando perfil... Diéville Leandro, Product Designer sênior';
+ const hero=el.closest('.hero-grid');const rest=[...hero.querySelectorAll(':scope > div > *, :scope > .feat')].filter(c=>!c.contains(el));
+ let seen=false;try{seen=localStorage.getItem('dv-boot')==='1';localStorage.setItem('dv-boot','1')}catch(e){}
+ if(still()){el.textContent=txt;return}
+ rest.forEach(c=>c.classList.add('boot-hide'));let i=0,t=null,done=false;
+ const reveal=()=>{if(done)return;done=true;clearInterval(t);el.textContent=txt;rest.forEach((c,k)=>setTimeout(()=>{c.classList.add('boot-show');c.classList.remove('boot-hide')},(seen?40:120)*k));document.removeEventListener('keydown',skipK);document.removeEventListener('pointerdown',reveal)};
+ const skipK=e=>{if(e.key==='Escape'||e.key===' '||e.key==='Enter')reveal()};
+ document.addEventListener('keydown',skipK);document.addEventListener('pointerdown',reveal);
+ const step=seen?Math.max(8,Math.floor(700/txt.length)):32;
+ t=setInterval(()=>{el.textContent=txt.slice(0,++i);if(i>=txt.length)reveal()},step);
+})();
+/* estante ou lista */
+(function(){
+ const ol=document.getElementById('lista');
+ ol.innerHTML=cases.map((k,i)=>`<li><span class="no">${String(i+1).padStart(2,'0')}</span><span class="nm"><b>${k.n}</b><span>${k.sub}</span></span><span class="yr">${k.ano}</span><span class="stt">${k.st}</span><span class="num">${k.lab}</span>${k.href?`<a href="${k.href}">Ler o case <span aria-hidden="true">→</span><span class="sr"> de ${k.n}</span></a>`:'<span class="soon">Case em breve</span>'}</li>`).join('');
+ const bE=document.getElementById('vEst'),bL=document.getElementById('vLis'),hint=document.getElementById('vHint');
+ const set=lista=>{ol.hidden=!lista;shelf.hidden=lista;bE.setAttribute('aria-pressed',!lista);bL.setAttribute('aria-pressed',lista);hint.textContent=lista?'Do mais recente ao mais antigo, com o número principal de cada case.':'Passe o mouse e puxe um livro. No teclado, use Tab e Enter.';try{localStorage.setItem('dv-view',lista?'lista':'estante')}catch(e){}};
+ bE.onclick=()=>set(false);bL.onclick=()=>set(true);
+ document.querySelector('.skip').addEventListener('click',e=>{e.preventDefault();set(true);ol.querySelector('a').focus()});
+ let pref=null;try{pref=localStorage.getItem('dv-view')}catch(e){}
+ set(pref?pref==='lista':still());
+})();
+/* conquistas viram cartas */
+(function(){
+ const sec=document.getElementById('depo-anchor').nextElementSibling;
+ sec.querySelectorAll('figure').forEach((f,n)=>{
+  const q=f.querySelector('blockquote'),p=f.querySelector('p'),cap=f.querySelector('figcaption');
+  const name=cap.querySelector('div > div').textContent;
+  f.classList.add('flip');f.innerHTML='';
+  const inner=document.createElement('div');inner.className='inner';
+  const front=document.createElement('div');front.className='face front';
+  const back=document.createElement('div');back.className='face back';back.id='back-'+n;
+  front.innerHTML='<div class="badge"><i>★</i>CONQUISTA DESBLOQUEADA</div>';front.append(q,cap);
+  const b1=document.createElement('button');b1.className='turn';b1.textContent='Ler o depoimento completo';b1.setAttribute('aria-expanded','false');b1.setAttribute('aria-controls',back.id);front.append(b1);
+  back.innerHTML='<div class="badge"><i>★</i>'+name.toUpperCase()+'</div>';back.append(p);
+  const b2=document.createElement('button');b2.className='turn';b2.textContent='Voltar';back.append(b2);
+  back.setAttribute('aria-hidden','true');
+  const set=on=>{f.classList.toggle('on',on);b1.setAttribute('aria-expanded',on);back.setAttribute('aria-hidden',!on);front.setAttribute('aria-hidden',on);
+   back.inert=!on;front.inert=on;setTimeout(()=>(on?b2:b1).focus(),still()?0:300)};
+  back.inert=true;b1.onclick=()=>set(true);b2.onclick=()=>set(false);
+  inner.append(front,back);f.append(inner);
+ });
+})();
+const syncStill=()=>document.body.classList.toggle('still',still());syncStill();
+document.getElementById('tMov').addEventListener('click',syncStill);
+
+/* barra fixa: aparece depois do topo e ao rolar para cima */
+(function(){const b=document.getElementById('minibar');let ly=scrollY;const H=()=>document.querySelector('header').offsetHeight-80;
+const up=()=>{const y=scrollY,show=y>H()&&(y<ly||y>document.documentElement.scrollHeight-innerHeight-40);b.classList.toggle('show',show);b.setAttribute('aria-hidden',!show);b.querySelectorAll('a').forEach(a=>a.tabIndex=show?0:-1);ly=y};
+addEventListener('scroll',up,{passive:true});up();
+document.getElementById('toTop').onclick=e=>{e.preventDefault();scrollTo({top:0,behavior:still()?'auto':'smooth'});document.querySelector('header a,header button').focus({preventScroll:true})};
+// ao clicar num link do menu, mostra a barra ao chegar
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>setTimeout(()=>{b.classList.add('show');b.setAttribute('aria-hidden','false');b.querySelectorAll('a').forEach(x=>x.tabIndex=0)},700)));
+})();
+</script>
+<div id="ck" class="ck" hidden role="dialog" aria-label="Aviso de privacidade"><p>Uso o Microsoft Clarity para entender como o site é usado, sem guardar o que você digita. Posso ativar?</p><div><button id="ckY">Pode ativar</button><button id="ckN">Agora não</button></div></div>
+<style>.ck{position:fixed;left:16px;right:16px;bottom:16px;max-width:520px;margin:0 auto;z-index:99;background:#19171F;color:#F2F1F6;border:1px solid #2C2935;border-radius:14px;padding:16px 18px;font:14px/1.5 Inter,system-ui,sans-serif;box-shadow:0 18px 40px rgba(0,0,0,.5)}.ck p{margin:0 0 12px;color:#C4C2CE}.ck div{display:flex;gap:10px}.ck button{font:inherit;font-weight:600;border-radius:8px;padding:9px 14px;cursor:pointer;border:1px solid #2C2935;background:transparent;color:#F2F1F6}.ck #ckY{background:#7E7CCC;color:#0F0E14;border-color:#7E7CCC}.ck button:focus-visible{outline:3px solid #7E7CCC;outline-offset:2px}</style>
+<script>(function(){var ID="zeotzek2uq";if(!ID)return;var k="dv-clarity",v=null;try{v=localStorage.getItem(k)}catch(e){}
+function load(){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script",ID);window.clarity("consent")}
+if(v==="sim"){load();return}if(v==="nao")return;var b=document.getElementById("ck");b.hidden=false;
+document.getElementById("ckY").onclick=function(){try{localStorage.setItem(k,"sim")}catch(e){}b.remove();load()};
+document.getElementById("ckN").onclick=function(){try{localStorage.setItem(k,"nao")}catch(e){}b.remove()};})();</script></body>
+</html>
