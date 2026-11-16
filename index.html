@@ -188,6 +188,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 .tip{position:relative;display:inline-flex}
 .tipbox{position:absolute;top:calc(100% + 10px);right:0;white-space:nowrap;font-family:'Inter',sans-serif;font-size:13px;background:#F2F1F6;color:#0F0E14;padding:6px 10px;border-radius:8px;opacity:0;transform:translateY(-4px);pointer-events:none;transition:opacity .15s,transform .15s;z-index:5}
 .tip:hover .tipbox,.tip:focus-within .tipbox{opacity:1;transform:none}
+.dshotl{display:block;border-radius:8px;position:relative}
+.dshotl.on{cursor:pointer}.dshotl.on::after{content:"Ler o case →";position:absolute;right:10px;bottom:10px;font-size:12px;font-weight:600;background:var(--accent);color:#0F0E14;padding:5px 10px;border-radius:999px;opacity:0;transition:opacity .2s}
+.dshotl.on:hover::after{opacity:1}.dshotl.on:hover img{border-color:var(--accent)}
 .stage{transition:background calc(.45s * var(--dur))}.stage.closing{background:rgba(10,9,14,0)}
 </style>
 </head>
@@ -404,9 +407,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 <p style="margin: 0; font-size: 17px">Se o seu produto precisa de alguém que decide rápido e ajusta sempre, me chama.</p>
 </div>
 <div style="flex: 0 1 360px; display: flex; flex-direction: column; gap: 12px">
-<a href="mailto:dieville@gmail.com" style="text-decoration: none; padding: 16px 24px; border-radius: 8px; background: var(--surface); color: var(--ink); font-weight: 600; text-align: center">dieville@gmail.com</a>
+<div style="display: flex; gap: 8px"><a href="mailto:dieville@gmail.com" style="flex: 1; text-decoration: none; padding: 16px 24px; border-radius: 8px; background: var(--surface); color: var(--ink); font-weight: 600; text-align: center">dieville@gmail.com</a><button type="button" class="cpy" data-copy="dieville@gmail.com" aria-label="Copiar e-mail" style="flex: none; font: inherit; font-weight: 600; font-size: 14px; padding: 0 16px; border-radius: 8px; border: 1.5px solid #0F0E14; background: transparent; color: #0F0E14; cursor: pointer; min-width: 92px">Copiar</button></div><span class="cpyst" role="status" aria-live="polite" style="font-size: 14px; min-height: 20px"></span>
+<script>document.querySelectorAll('.cpy').forEach(function(b){b.onclick=function(){var t=b.dataset.copy,s=b.parentNode.nextElementSibling;var ok=function(){b.textContent='Copiado ✓';s.textContent='E-mail copiado.';setTimeout(function(){b.textContent='Copiar';s.textContent=''},2200)};if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,function(){prompt('Copie o e-mail:',t)})}else{prompt('Copie o e-mail:',t)}}})</script>
 <a href="https://linkedin.com/in/dieville" style="text-decoration: none; padding: 16px 24px; border-radius: 8px; border: 1.5px solid #0F0E14; font-weight: 600; text-align: center">linkedin.com/in/dieville</a>
-<a href="https://wa.me/5585997635522" target="_blank" rel="noopener" style="text-decoration: none; padding: 16px 24px; border-radius: 8px; border: 1.5px solid #0F0E14; font-weight: 600; text-align: center">WhatsApp (85) 99763-5522</a>
 </div>
 </div>
 </section>
@@ -425,7 +428,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 <div class="cover" id="dCover"><span class="mono" style="color:#fff;opacity:.8" id="dTag"></span><div><div style="font-size:32px;font-weight:700;line-height:1.1" id="dTitle"></div><div id="dSub" style="opacity:.85"></div></div></div>
 <div class="page">
 <div class="dmeta" id="dMeta"></div>
-<img class="dshot" id="dShot" alt="">
+<a id="dShotL" class="dshotl" tabindex="-1"><img class="dshot" id="dShot" alt=""></a>
 <dl>
 <div><dt>PAPEL</dt><dd id="dPapel"></dd></div>
 <div><dt>DECISÃO-CHAVE</dt><dd id="dDec"></dd></div>
@@ -484,7 +487,7 @@ let lastBtn=null,flyer=null;
 const $=id=>document.getElementById(id);
 function openCase(i,btn){
  const k=cases[i];lastBtn=btn;cur=i;
- $('dTag').textContent=k.tag;$('dTitle').textContent=k.n;$('dSub').textContent=k.sub;$('dPapel').textContent=k.p;$('dDec').textContent=k.d;$('dRes').textContent=k.r;$('dMeta').textContent=[k.emp,k.ano,k.st].filter(Boolean).join(' · ');$('dNums').innerHTML=k.nums.map(([v,l])=>`<div><b>${v}</b><span>${l}</span></div>`).join('');$('dNums').hidden=!k.nums.length;$('dShot').src=k.shot;$('dShot').alt=`Tela do ${k.n}`;const L=$('dLink');L.innerHTML=k.href?'Ler o case <i aria-hidden="true">→</i>':'Case em breve';if(k.href){L.href=k.href;L.removeAttribute('aria-disabled')}else{L.removeAttribute('href');L.setAttribute('aria-disabled','true');L.setAttribute('tabindex','0')}$('dCover').style.background=`linear-gradient(180deg,rgba(15,14,20,.55) 0%,rgba(15,14,20,.05) 35%,rgba(15,14,20,.15) 55%,rgba(15,14,20,.85) 100%), url(${k.img}) center/cover, ${k.c}`;
+ $('dTag').textContent=k.tag;$('dTitle').textContent=k.n;$('dSub').textContent=k.sub;$('dPapel').textContent=k.p;$('dDec').textContent=k.d;$('dRes').textContent=k.r;$('dMeta').textContent=[k.emp,k.ano,k.st].filter(Boolean).join(' · ');$('dNums').innerHTML=k.nums.map(([v,l])=>`<div><b>${v}</b><span>${l}</span></div>`).join('');$('dNums').hidden=!k.nums.length;$('dShot').src=k.shot;const SL=$('dShotL');if(k.href){SL.href=k.href;SL.title='Ler o case';SL.setAttribute('aria-label','Ler o case '+k.n);SL.classList.add('on')}else{SL.removeAttribute('href');SL.removeAttribute('title');SL.removeAttribute('aria-label');SL.classList.remove('on')}$('dShot').alt=`Tela do ${k.n}`;const L=$('dLink');L.innerHTML=k.href?'Ler o case <i aria-hidden="true">→</i>':'Case em breve';if(k.href){L.href=k.href;L.removeAttribute('aria-disabled')}else{L.removeAttribute('href');L.setAttribute('aria-disabled','true');L.setAttribute('tabindex','0')}$('dCover').style.background=`linear-gradient(180deg,rgba(15,14,20,.55) 0%,rgba(15,14,20,.05) 35%,rgba(15,14,20,.15) 55%,rgba(15,14,20,.85) 100%), url(${k.img}) center/cover, ${k.c}`;
  stage.classList.add('open');ob.classList.remove('show');
  const r=btn.getBoundingClientRect();
  if(!still()){
