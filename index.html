@@ -192,7 +192,23 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 .dshotl.on{cursor:pointer}.dshotl.on::after{content:"Ler o case →";position:absolute;right:10px;bottom:10px;font-size:12px;font-weight:600;background:var(--accent);color:#0F0E14;padding:5px 10px;border-radius:999px;opacity:0;transition:opacity .2s}
 .dshotl.on:hover::after{opacity:1}.dshotl.on:hover img{border-color:var(--accent)}
 .stage{transition:background calc(.45s * var(--dur))}.stage.closing{background:rgba(10,9,14,0)}
-</style>
+
+/* mobile e tablet */
+html,body{overflow-x:clip}.guildas,#projetos{overflow-x:clip}
+.burger{display:none;width:40px;height:40px;border-radius:10px;border:1px solid #3A3546;background:rgba(25,23,31,.82);color:#F2F1F6;font-size:18px;cursor:pointer;align-items:center;justify-content:center}
+header nav{position:relative}
+@media (max-width:1000px){.vtag{display:none}}
+@media (max-width:760px){
+ .burger{display:inline-flex}
+ #navl{display:none;position:absolute;top:52px;right:0;flex-direction:column;align-items:stretch!important;gap:2px!important;padding:10px;background:#19171F;border:1px solid #3A3546;border-radius:12px;z-index:30;min-width:230px;box-shadow:0 12px 32px rgba(0,0,0,.5)}
+ #navl.open{display:flex}#navl>a{padding:12px;border-radius:8px}#navl>a:last-of-type{text-align:center;margin-top:6px}#navl .tip{align-self:flex-start;padding:4px 8px}
+ header{height:auto!important;min-height:100svh}
+ .hero-grid{margin-top:56px;margin-bottom:40px}.feat{flex:1 1 100%}
+ #shelf,.viewbar .seg,.viewbar .skip,#vHint{display:none!important}
+ .trail ol{flex-direction:column}.trail li{border-top:0;border-left:2px solid var(--line);padding:0 0 16px 18px}.trail li::before{top:3px;left:-6px}.trail li.now{border-color:var(--accent)}
+}
+@media (min-width:761px) and (max-width:1100px){#row .stack,#row .next,#row .bot{display:none}#row{justify-content:center}}
+/* scroll snap */html{scroll-snap-type:y proximity;scroll-padding-top:16px}body>header,section[id],main>section{scroll-snap-align:start}</style>
 </head>
 <body>
 <div style="width: 100%; background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; line-height: 1.5">
@@ -203,7 +219,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 <img src="img/eu-setup.jpg" alt="Diéville trabalhando no setup, em frente aos monitores" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 75% 35%; opacity: 0.75">
 <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,14,20,0.96) 0%, rgba(15,14,20,0.82) 45%, rgba(15,14,20,0.25) 100%)"></div>
 <div style="position: relative; max-width: 1120px; margin: 0 auto; padding: 24px 32px; color: #F2F1F6; height: 100%; box-sizing: border-box; display: flex; flex-direction: column">
-<nav style="display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 13px"><a href="index.html" aria-label="Diéville, início" style="display:flex;align-items:center;gap:10px;text-decoration:none"><img src="img/logo.svg" alt="Diéville" width="118" height="24" style="display:block"><span style="color: #7E7CCC">v2.0</span></a><span style="display: flex; gap: 24px; align-items: center"><a href="#projetos" style="text-decoration: none">Cases</a><a href="sobre.html" style="text-decoration: none">Sobre</a><a href="#log" style="text-decoration: none">Trajetória</a><a href="mentoria.html" style="text-decoration: none; color: #C4C2CE">Área do mentorado</a><a href="#contato" style="text-decoration: none; padding: 8px 14px; border-radius: 8px; background: #7E7CCC; color: #0F0E14">Quero conversar</a><span class="tip"><button id="tMov" class="ico" aria-pressed="false" aria-label="Reduzir movimento" aria-describedby="tMovTip">≋</button><span class="tipbox" role="tooltip" id="tMovTip">Reduzir movimento</span></span></span></nav>
+<nav style="display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 13px"><a href="index.html" aria-label="Diéville, início" style="display:flex;align-items:center;gap:10px;text-decoration:none"><img src="img/logo.svg" alt="Diéville" width="118" height="24" style="display:block"><span class="vtag" style="color: #7E7CCC">v2.0</span></a><button class="burger" id="burger" aria-expanded="false" aria-controls="navl" aria-label="Abrir menu">☰</button><span id="navl" style="display: flex; gap: 24px; align-items: center"><a href="#projetos" style="text-decoration: none">Cases</a><a href="sobre.html" style="text-decoration: none">Sobre</a><a href="#log" style="text-decoration: none">Trajetória</a><a href="mentoria.html" style="text-decoration: none; color: #C4C2CE">Área do mentorado</a><a href="#contato" style="text-decoration: none; padding: 8px 14px; border-radius: 8px; background: #7E7CCC; color: #0F0E14">Quero conversar</a><span class="tip"><button id="tMov" class="ico" aria-pressed="false" aria-label="Reduzir movimento" aria-describedby="tMovTip">≋</button><span class="tipbox" role="tooltip" id="tMovTip">Reduzir movimento</span></span></span></nav>
 <div class="hero-grid"><div style="max-width: 620px; display: flex; flex-direction: column; gap: 20px">
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #7E7CCC"><span id="boot" aria-hidden="true"></span><span class="sr" id="bootSr">Product Designer sênior</span></div>
 <h1 style="margin: 0; font-size: 60px; line-height: 1.02; letter-spacing: -0.03em">Coleciono histórias.<br>Estruturo produtos que funcionam.</h1>
@@ -545,7 +561,7 @@ $('tMov').onclick=e=>{const on=root.dataset.motion!=='reduzido';root.dataset.mot
  bE.onclick=()=>set(false);bL.onclick=()=>set(true);
  document.querySelector('.skip').addEventListener('click',e=>{e.preventDefault();set(true);ol.querySelector('a').focus()});
  let pref=null;try{pref=localStorage.getItem('dv-view')}catch(e){}
- set(pref?pref==='lista':still());
+ if(matchMedia('(max-width:760px)').matches){ol.hidden=false;shelf.hidden=true}else set(pref?pref==='lista':still());
 })();
 /* conquistas viram cartas */
 (function(){
@@ -580,7 +596,7 @@ document.getElementById('toTop').onclick=e=>{e.preventDefault();scrollTo({top:0,
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>setTimeout(()=>{b.classList.add('show');b.setAttribute('aria-hidden','false');b.querySelectorAll('a').forEach(x=>x.tabIndex=0)},700)));
 })();
 </script>
-<div id="ck" class="ck" hidden role="dialog" aria-label="Aviso de privacidade"><p>Uso o Microsoft Clarity para entender como o site é usado, sem guardar o que você digita. Posso ativar?</p><div><button id="ckY">Pode ativar</button><button id="ckN">Agora não</button></div></div>
+<script>(function(){const b=document.getElementById('burger'),m=document.getElementById('navl');if(!b)return;const t=o=>{m.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.textContent=o?'✕':'☰';b.setAttribute('aria-label',o?'Fechar menu':'Abrir menu')};b.onclick=()=>t(!m.classList.contains('open'));m.addEventListener('click',e=>{if(e.target.closest('a'))t(false)});document.addEventListener('keydown',e=>{if(e.key==='Escape')t(false)});document.addEventListener('click',e=>{if(!e.target.closest('header nav'))t(false)})})();</script><div id="ck" class="ck" hidden role="dialog" aria-label="Aviso de privacidade"><p>Uso o Microsoft Clarity para entender como o site é usado, sem guardar o que você digita. Posso ativar?</p><div><button id="ckY">Pode ativar</button><button id="ckN">Agora não</button></div></div>
 <style>.ck{position:fixed;left:16px;right:16px;bottom:16px;max-width:520px;margin:0 auto;z-index:99;background:#19171F;color:#F2F1F6;border:1px solid #2C2935;border-radius:14px;padding:16px 18px;font:14px/1.5 Inter,system-ui,sans-serif;box-shadow:0 18px 40px rgba(0,0,0,.5)}.ck p{margin:0 0 12px;color:#C4C2CE}.ck div{display:flex;gap:10px}.ck button{font:inherit;font-weight:600;border-radius:8px;padding:9px 14px;cursor:pointer;border:1px solid #2C2935;background:transparent;color:#F2F1F6}.ck #ckY{background:#7E7CCC;color:#0F0E14;border-color:#7E7CCC}.ck button:focus-visible{outline:3px solid #7E7CCC;outline-offset:2px}</style>
 <script>(function(){var ID="zeotzek2uq";if(!ID)return;var k="dv-clarity",v=null;try{v=localStorage.getItem(k)}catch(e){}
 function load(){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script",ID);window.clarity("consent")}
