@@ -194,6 +194,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 .stage{transition:background calc(.45s * var(--dur))}.stage.closing{background:rgba(10,9,14,0)}
 
 /* mobile e tablet */
+.mb{display:none}@media (max-width:760px){.dk{display:none}.mb{display:inline}}
 html,body{overflow-x:clip}.guildas,#projetos{overflow-x:clip}
 .burger{display:none;width:40px;height:40px;border-radius:10px;border:1px solid #3A3546;background:rgba(25,23,31,.82);color:#F2F1F6;font-size:18px;cursor:pointer;align-items:center;justify-content:center}
 header nav{position:relative}
@@ -264,8 +265,8 @@ header nav{position:relative}
 <section id="projetos" style="max-width: 1120px; margin: 0 auto; padding: 88px 32px">
 <div style="display: flex; flex-direction: column; gap: 12px; padding-bottom: 40px">
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">PRATELEIRA 1 · CASES</div>
-<h2 style="margin: 0; font-size: 36px; line-height: 1.1; letter-spacing: -0.01em">Cada case é um livro. Puxe um.</h2>
-<p style="margin: 0; font-size: 17px; color: var(--text2); max-width: 640px">Do mais recente ao mais antigo. Abra um livro para ver meu papel, a decisão que mudou o projeto e o resultado. Se algo ainda não foi medido, eu aviso.</p>
+<h2 style="margin: 0; font-size: 36px; line-height: 1.1; letter-spacing: -0.01em"><span class="dk">Cada case é um livro. Puxe um.</span><span class="mb">Cada case é um livro. Escolha um.</span></h2>
+<p style="margin: 0; font-size: 17px; color: var(--text2); max-width: 640px"><span class="dk">Do mais recente ao mais antigo. Abra um livro para ver meu papel, a decisão que mudou o projeto e o resultado. Se algo ainda não foi medido, eu aviso.</span><span class="mb">Do mais recente ao mais antigo. Abra um case para ver meu papel, a decisão que mudou o projeto e o resultado. Se algo ainda não foi medido, eu aviso.</span></p>
 </div>
 <div class="viewbar"><a class="skip" href="#lista">Pular para a lista de cases</a><div class="seg" role="group" aria-label="Como ver os cases"><button type="button" id="vEst" aria-pressed="true">Estante</button><button type="button" id="vLis" aria-pressed="false">Lista</button></div><p id="vHint" style="margin: 0; color: var(--text2)">Passe o mouse e puxe um livro. No teclado, use Tab e Enter.</p></div>
 <ol class="idx" id="lista" hidden></ol>
@@ -463,8 +464,8 @@ header nav{position:relative}
 const cases=[
 {n:'Boavista',shot:'img/case-boavista.jpg',img:'img/capa-boavista.jpg',logo:'img/logo-boavista.png',sub:'Jornada de Implantação',tag:'EM PRODUÇÃO · 2025',c:'#4A48A0',h:300,emp:'Boavista · fintech',ano:'2025',st:'em produção · sob NDA',lab:'sob NDA',href:'',p:'Único Product Designer, do discovery ao delivery',d:'Retomar a solução pausada e reunir tudo em uma jornada única, priorizada junto com os devs',r:'Em produção, testada pelo time de implantação e em ajuste contínuo',nums:[]},
 {n:'Watches',shot:'img/case-watches.jpg',img:'img/capa-watches.jpg',logo:'',sub:'Produto próprio com IA',tag:'EM ANDAMENTO · 2026',c:'#5E5CB8',h:270,emp:'Dieville Watches · produto próprio',ano:'2026',st:'em andamento',lab:'13 de 20 ativos',href:'watches.html',p:'Produto, design e código com IA, com aprovação minha em cada decisão',d:'Home em torno de uma pergunta: "O que vou assistir hoje?"',r:'Em validação com amigos convidados',nums:[['20','convidados'],['13','adicionaram títulos'],['8','chegaram a 5 títulos']]},
-{n:'GLIC',shot:'img/case-glic.jpg',img:'img/capa-glic.jpg',logo:'img/logo-glic.png',sub:'Fluxo principal do app',tag:'NO AR · HEALTHTECH',c:'#33316B',h:290,emp:'GLIC · healthtech',ano:'',st:'no ar',lab:'+150 mil usuários',href:'glic.html',p:'Product Designer, do workshop ao protótipo de alta fidelidade',d:'Priorizar o Fluxo de Refeição',r:'Validado com 5 usuários no Design Sprint',nums:[['+150 mil','usuários ativos'],['12','entrevistas'],['5 dias','de Design Sprint']]},
 {n:'Vect.Ag',shot:'img/case-vectag.jpg',img:'img/capa-vectag.jpg',logo:'img/logo-vectag.png',sub:'Crédito rural',tag:'NO AR · AGROTECH',c:'#403E88',h:250,emp:'Vect.Ag · agrotech, pela Quiker',ano:'2023',st:'no ar',lab:'-73% retrabalho',href:'vectag.html',p:'Product Designer, ponta a ponta, do discovery ao pós-lançamento',d:'Desenhar para o agrônomo da cooperativa, o usuário-chave descoberto em campo',r:'Aprovação do crédito caiu de 72 para 24 horas',nums:[['72h → 24h','para aprovar o crédito'],['-73%','de retrabalho'],['+31%','de solicitações']]}];
+{n:'GLIC',shot:'img/case-glic.jpg',img:'img/capa-glic.jpg',logo:'img/logo-glic.png',sub:'Fluxo principal do app',tag:'NO AR · HEALTHTECH',c:'#33316B',h:290,emp:'GLIC · healthtech',ano:'',st:'no ar',lab:'+150 mil usuários',href:'glic.html',p:'Product Designer, do workshop ao protótipo de alta fidelidade',d:'Priorizar o Fluxo de Refeição',r:'Validado com 5 usuários no Design Sprint',nums:[['+150 mil','usuários ativos'],['12','entrevistas'],['5 dias','de Design Sprint']]},
 const row=document.getElementById('row');
 const fill=(w,h)=>{const f=document.createElement('div');f.className='filler';f.style.cssText=`width:${w}px;height:${h}px`;f.setAttribute('aria-hidden','true');return f};
 row.append(fill(18,180),fill(24,210));
