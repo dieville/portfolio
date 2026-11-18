@@ -104,12 +104,129 @@ table{width:100%;border-collapse:collapse;font-size:15px;margin-top:20px}th,td{t
 .tag.wait{background:#3A2E14;color:#F2C46D}
 .mat .act{margin-top:auto;padding-top:8px;font-size:13px;font-weight:600;color:var(--text3)}.mat .act.on{color:var(--accent)}
 .mat.lock{opacity:.5;cursor:not-allowed}
+
+.dash{display:grid;grid-template-columns:240px 1fr;gap:40px;padding:40px 0 96px}.side{position:sticky;top:84px;align-self:start}
+.side .who{display:flex;gap:12px;align-items:center;margin-bottom:20px}.av{width:44px;height:44px;border-radius:999px;background:var(--accent);color:#0F0E14;display:flex;align-items:center;justify-content:center;font-weight:700}
+.side a,.side button.lnk{display:block;text-decoration:none;padding:10px 12px;border-radius:8px;color:var(--text2);font-size:15px;background:none;border:0;font:inherit;cursor:pointer;text-align:left;width:100%}
+.blk2{padding:8px 0 56px;border-bottom:1px solid var(--line);margin-bottom:48px}
+.tb{width:100%;border-collapse:collapse;margin-top:20px;font-size:15px}.tb th,.tb td{text-align:left;padding:10px 12px;border-top:1px solid var(--line);vertical-align:top}.tb thead th{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3);font-weight:400}
+.tw{overflow-x:auto}.ed td{padding:6px}.ed input,.ed select,.ed textarea{padding:8px 10px;font-size:14px;min-width:90px;width:100%}.ed textarea{min-height:44px;min-width:200px}.ed input[type=checkbox]{width:20px;min-width:0}.ed .act{white-space:nowrap}
+.bar{height:6px;background:var(--line);border-radius:9px;overflow:hidden;margin:8px 0 4px}.bar i{display:block;height:100%;background:var(--accent)}
+.steps{list-style:none;padding:0;margin:24px 0 0}.st{display:grid;grid-template-columns:36px 1fr auto;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
+.dot{width:28px;height:28px;border-radius:999px;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--text3)}
+.st.concluida .dot{background:var(--accent);border-color:var(--accent);color:#0F0E14}.st.atual .dot,.st.aguardando .dot{border-color:var(--accent);color:var(--accent)}.st.bloqueada{opacity:.6}
+.tag{font-family:'JetBrains Mono',monospace;font-size:11px;padding:3px 8px;border-radius:99px;background:var(--chip,#25222E);color:var(--text2);white-space:nowrap;align-self:start}
+.st.concluida .tag{background:#1E3A2E;color:#9FE3BE}.st.atual .tag{background:#2E2950;color:#C9C6FF}.st.aguardando .tag{background:#3A2E14;color:#F2C46D}
+.fb{font-size:14px;background:var(--surface);border-radius:8px;padding:10px 12px}
+.btn.sm{padding:9px 14px;font-size:14px}.btn:disabled{opacity:.6}
+.mats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px}.mat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:4px}.mat.lock{opacity:.55}
+.k{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3)}.mat .mono.k{color:var(--accent)}.lk{margin-top:auto;padding:8px 0 0;font:inherit;font-weight:600;color:var(--accent);background:none;border:0;text-align:left;cursor:pointer;text-decoration:none}
+.goals{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}.goals li{display:grid;grid-template-columns:1fr 56px;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}.goals b{font-family:'JetBrains Mono',monospace;color:var(--accent);text-align:right}
+.rv{margin:12px 0}.adm h3{margin-top:32px}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);opacity:0;background:var(--ink);color:#0F0E14;padding:12px 18px;border-radius:10px;font-weight:600;transition:.25s;z-index:99}#toast.on{opacity:1;transform:translate(-50%,0)}
+@media (max-width:820px){.dash{grid-template-columns:1fr}.side{position:static}.mats{grid-template-columns:1fr}.st{grid-template-columns:32px 1fr}.st .tag{grid-column:2}}
 </style><meta name="robots" content="noindex"></head><body>
-<div class="topbar" id="topbar"><div class="w"><nav class="top" aria-label="Principal"><a href="index.html" aria-label="Diéville, início" style="display:flex;align-items:center;gap:10px"><img src="img/logo.svg" alt="Diéville" width="118" height="24" style="display:block"><span style="color:#7E7CCC">v2.0</span></a><span class="l"><a href="index.html#projetos">Cases</a><a href="sobre.html">Sobre</a><a href="mentoria.html" aria-current="page">Área do mentorado</a><a class="cta" href="index.html#contato">Quero conversar</a></span></nav></div></div><main><div class="w"><div class="login"><div class="eyebrow">ÁREA DO MENTORADO</div><h1 style="font-size:44px">Sua mentoria, num lugar só.</h1>
+<div class="topbar" id="topbar"><div class="w"><nav class="top" aria-label="Principal"><a href="index.html" aria-label="Diéville, início" style="display:flex;align-items:center;gap:10px"><img src="img/logo.svg" alt="Diéville" width="118" height="24" style="display:block"><span style="color:#7E7CCC">v2.0</span></a><span class="l"><a href="index.html#projetos">Cases</a><a href="sobre.html">Sobre</a><a href="mentoria.html" aria-current="page">Área do mentorado</a><a class="cta" href="index.html#contato">Quero conversar</a></span></nav></div></div><main>
+<div class="view on" id="v-load"><div class="w"><p style="padding:96px 0">Carregando…</p></div></div>
+<div class="view" id="v-login"><div class="w"><form class="login" id="fLogin"><div class="eyebrow">ÁREA DO MENTORADO</div><h1 style="font-size:44px">Sua mentoria, num lugar só.</h1>
 <p>Entre com o e-mail cadastrado. Você recebe um link de acesso, sem senha.</p>
-<div class="field"><label for="em">E-MAIL</label><input id="em" type="email" placeholder="voce@email.com" disabled autocomplete="email"></div>
-<button class="btn" type="button" disabled aria-disabled="true" style="opacity:.55;cursor:not-allowed">Área em construção</button>
-<p style="font-size:14px;margin-top:20px;color:var(--text3)">O acesso é liberado pelo Diéville no começo da mentoria. Cada pessoa vê só a própria área.</p></div></div></main><script>(function(){const t=document.getElementById('topbar');let ly=scrollY;addEventListener('scroll',()=>{const y=scrollY;t.classList.toggle('sc',y>10);t.classList.toggle('down',y>ly&&y>200);ly=y},{passive:true})})()</script><script>/* encaixe suave */(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const sel='body>header,section[id],main>section,.blk2';const pad=document.querySelector('header.cb')?72:16;let t,touch=false,busy=false;addEventListener('touchstart',()=>touch=true,{passive:true});addEventListener('touchend',()=>{touch=false;arm()},{passive:true});function arm(){clearTimeout(t);t=setTimeout(go,220)}function go(){if(touch||busy)return;let best=null,d=1e9;document.querySelectorAll(sel).forEach(e=>{if(!e.offsetParent&&e.tagName!=='HEADER')return;const y=e.getBoundingClientRect().top-pad;if(Math.abs(y)<Math.abs(d)){d=y;best=e}});if(best&&Math.abs(d)>4&&Math.abs(d)<70){busy=true;scrollBy({top:d,behavior:'smooth'});setTimeout(()=>busy=false,500)}}addEventListener('scroll',()=>{if(!busy)arm()},{passive:true})})();</script><div id="ck" class="ck" hidden role="dialog" aria-label="Aviso de privacidade"><p>Uso o Microsoft Clarity para entender como o site é usado, sem guardar o que você digita. Posso ativar?</p><div><button id="ckY">Pode ativar</button><button id="ckN">Agora não</button></div></div>
+<div class="field"><label for="em">E-MAIL</label><input id="em" type="email" required placeholder="voce@email.com" autocomplete="email"></div>
+<button class="btn" id="bLogin" type="submit">Receber link de acesso</button><p id="lMsg" role="status" style="margin-top:16px"></p>
+<p style="font-size:14px;margin-top:20px;color:var(--text3)">O acesso é liberado pelo Diéville no começo da mentoria. Cada pessoa vê só a própria área.</p></form></div></div>
+<div class="view" id="v-sem"><div class="w"><div class="login"><div class="eyebrow">ÁREA DO MENTORADO</div><h1 style="font-size:40px">Seu acesso ainda não foi liberado.</h1><p>Se você está em mentoria com o Diéville, fale com ele para liberar este e-mail.</p><button class="btn ghost" data-sair>Sair</button></div></div></div>
+<div class="view" id="v-mentee"><div class="w dash"><aside class="side"><div class="who"><span class="av" id="mAv"></span><div><b id="mNome"></b><div class="k" id="mFoco"></div></div></div><nav aria-label="Seções"><a href="#mPonto">Ponto de partida</a><a href="#mTrilha">Trilha</a><a href="#mMat">Materiais</a><a href="#mEnc">Encontros</a><a href="#mMetas">Metas</a><button class="lnk" data-sair>Sair</button></nav></aside>
+<div><section class="blk2" id="mPonto"></section><section class="blk2" id="mTrilha"></section><section class="blk2" id="mMat"></section><section class="blk2" id="mEnc"></section><section class="blk2" id="mMetas"></section></div></div></div>
+<div class="view" id="v-admin"><div class="w dash"><aside class="side"><div class="who"><span class="av">DL</span><div><b>Diéville</b><div class="k">Admin da mentoria</div></div></div><nav aria-label="Seções"><a href="#aRev">Para revisar</a><a href="#aMentees">Mentorados</a><a href="#aDet">Por mentorado</a><button class="lnk" data-sair>Sair</button></nav></aside>
+<div class="adm"><section class="blk2" id="aRev"></section><section class="blk2" id="aMentees"></section>
+<section class="blk2" id="aDet"><div class="eyebrow">POR MENTORADO</div><div class="field" style="max-width:360px"><label for="aSel">MENTORADO</label><select id="aSel"></select></div>
+<h3>Ponto de partida</h3><div id="aPonto"></div><div id="a-steps"></div><div id="a-materials"></div><div id="a-meetings"></div><div id="a-goals"></div><div id="a-private_notes"></div></section></div></div></div>
+</main><div id="toast" role="status" aria-live="polite"></div>
+<script src="js/supabase.js"></script>
+<script>const SB=supabase.createClient('https://frbwozhudkjiidwxsnuf.supabase.co','sb_publishable_zatkDozUksqw3ZbuC0jnrQ_PYTC9aJX');
+const $=s=>document.querySelector(s),E=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ADMIN='dieville@gmail.com';let ME=null,CUR=null;
+const ST={bloqueada:'a seguir',atual:'em andamento',aguardando:'aguardando avaliação',concluida:'concluída'};
+const fdate=d=>new Date(d).toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'}).replace('.','').toUpperCase();
+function show(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id===id));scrollTo(0,0)}
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),3200)}
+async function boot(){const {data:{session}}=await SB.auth.getSession();if(!session){show('v-login');return}
+ ME=session.user;const email=(ME.email||'').toLowerCase();
+ if(email===ADMIN){await admin();return}
+ const {data:m}=await SB.from('mentees').select('*').eq('email',email).maybeSingle();
+ if(!m||m.status==='pausada'){show('v-sem');return}await mentee(m)}
+SB.auth.onAuthStateChange((ev)=>{if(ev==='SIGNED_IN'&&location.hash.includes('access_token'))history.replaceState(null,'',location.pathname)});
+$('#fLogin').onsubmit=async e=>{e.preventDefault();const em=$('#em').value.trim();const b=$('#bLogin');b.disabled=true;
+ const {error}=await SB.auth.signInWithOtp({email:em,options:{emailRedirectTo:location.origin+location.pathname}});b.disabled=false;
+ $('#lMsg').textContent=error?'Não deu para enviar agora. Confira o e-mail e tente de novo em alguns minutos.':'Pronto. Abra o link que chegou no seu e-mail (veja também o spam).'};
+document.addEventListener('click',async e=>{if(e.target.closest('[data-sair]')){await SB.auth.signOut();location.reload()}});
+
+/* ---------- mentorado ---------- */
+async function load(id){const q=t=>SB.from(t).select('*').eq('mentee_id',id);
+ const [s,a,e,g]=await Promise.all([q('steps').order('ordem'),q('materials').order('ordem'),q('meetings').order('data',{ascending:false}),q('goals').order('ordem')]);
+ return {steps:s.data||[],mats:a.data||[],meet:e.data||[],goals:g.data||[]}}
+async function mentee(m){const d=await load(m.id);CUR=m;show('v-mentee');
+ const ini=m.nome.split(' ').map(x=>x[0]).slice(0,2).join('');$('#mAv').textContent=ini;$('#mNome').textContent=m.nome;$('#mFoco').textContent=m.foco||'';
+ $('#mPonto').innerHTML=`<div class="eyebrow">PONTO DE PARTIDA</div><h2>${E(m.titulo||'Ponto de partida')}</h2>${(m.ponto_partida||'').split(/\n\s*\n/).map(p=>`<p class="lede">${E(p)}</p>`).join('')}${(m.ponto_tabela||[]).length?`<table class="tb"><thead><tr><th>TEMA</th><th>SITUAÇÃO ATUAL</th></tr></thead><tbody>${m.ponto_tabela.map(r=>`<tr><th scope="row">${E(r[0])}</th><td>${E(r[1])}</td></tr>`).join('')}</tbody></table>`:''}`;
+ const n=d.steps.length,ok=d.steps.filter(s=>s.status==='concluida').length,at=d.steps.find(s=>s.status==='atual'||s.status==='aguardando');
+ $('#mTrilha').innerHTML=`<div class="eyebrow">TRILHA</div><h2>${at?`Você está na etapa ${at.ordem} de ${n}.`:ok===n&&n?'Trilha concluída.':'Sua trilha'}</h2><p>${n?Math.round(ok/n*100):0}% · ${ok} de ${n} etapas aprovadas</p><div class="bar"><i style="width:${n?ok/n*100:0}%"></i></div><ol class="steps">${d.steps.map(s=>`<li class="st ${s.status}"><span class="dot">${s.status==='concluida'?'✓':s.ordem}</span><div><h3>${E(s.titulo)}</h3><p>${E(s.descricao)}</p>${s.feedback?`<p class="fb"><b>Retorno do Diéville:</b> ${E(s.feedback)}</p>`:''}${s.status==='aguardando'?`<p class="fb">Enviado em ${fdate(s.entregue_em)}. Aguardando avaliação.</p>`:''}${s.status==='atual'?`<button class="btn sm" data-abrir="${s.id}">Concluí esta etapa</button><form class="concl" id="f-${s.id}" hidden><div class="field"><label for="l-${s.id}">LINK DO QUE VOCÊ ENTREGOU</label><input id="l-${s.id}" type="url" placeholder="https://"></div><div class="field"><label for="c-${s.id}">COMENTÁRIO CURTO</label><textarea id="c-${s.id}" maxlength="600"></textarea></div><button class="btn sm" type="submit">Enviar para avaliação</button> <button class="btn ghost sm" type="button" data-fechar="${s.id}">Cancelar</button></form>`:''}</div><span class="tag">${ST[s.status]}</span></li>`).join('')}</ol>`;
+ $('#mMat').innerHTML=`<div class="eyebrow">MATERIAIS</div><h2>O que usar em cada etapa.</h2><div class="mats">${d.mats.map(a=>`<div class="mat ${a.liberado?'':'lock'}"><span class="mono k">${a.etapa?`ETAPA ${a.etapa}`:'GERAL'}</span><h3>${E(a.titulo)}</h3><p>${E(a.descricao)}</p>${a.liberado?(a.tipo==='arquivo'?(a.storage_path?`<button class="lk" data-baixar="${E(a.storage_path)}">Baixar ↓</button>`:'<span class="k">Arquivo em breve</span>'):(a.url?`<a class="lk" href="${E(a.url)}" target="_blank" rel="noopener">Abrir ↗</a>`:'<span class="k">Link em breve</span>')):`<span class="k">🔒 Libera${a.etapa?` na etapa ${a.etapa}`:' em breve'}</span>`}</div>`).join('')||'<p>Nenhum material ainda.</p>'}</div>`;
+ $('#mEnc').innerHTML=`<div class="eyebrow">ENCONTROS</div><h2>O que mudou a cada conversa.</h2><ol class="log">${d.meet.map(x=>`<li><span class="v">${fdate(x.data)}</span><div><h3>${E(x.titulo)}</h3><p>${E(x.resumo)}</p>${x.proximo?`<p><b>Próximo passo:</b> ${E(x.proximo)}</p>`:''}</div></li>`).join('')||'<li><span></span><div><p>O primeiro encontro aparece aqui.</p></div></li>'}</ol>`;
+ $('#mMetas').innerHTML=`<div class="eyebrow">METAS</div><h2>Combinadas no começo, revistas no caminho.</h2><ul class="goals">${d.goals.map(g=>{const p=Math.min(100,Math.round(g.atual/Math.max(1,g.alvo)*100));return `<li><div><h3>${E(g.titulo)}</h3><p>${g.tipo==='sim_nao'?'Sim ou não':`Contagem · ${g.atual} de ${g.alvo} ${E(g.unidade||'')}`}${g.prazo?` · ${E(g.prazo)}`:''}</p><div class="bar"><i style="width:${p}%"></i></div></div><b>${p}%</b></li>`}).join('')}</ul>`}
+document.addEventListener('click',async e=>{const a=e.target.closest('[data-abrir]');if(a){$('#f-'+a.dataset.abrir).hidden=false;a.hidden=true;$('#l-'+a.dataset.abrir).focus()}
+ const f=e.target.closest('[data-fechar]');if(f){$('#f-'+f.dataset.fechar).hidden=true;document.querySelector(`[data-abrir="${f.dataset.fechar}"]`).hidden=false}
+ const b=e.target.closest('[data-baixar]');if(b){const {data,error}=await SB.storage.from('materiais').createSignedUrl(b.dataset.baixar,300);if(error)toast('Não foi possível abrir o arquivo.');else window.open(data.signedUrl,'_blank','noopener')}});
+document.addEventListener('submit',async e=>{const f=e.target.closest('form.concl');if(!f)return;e.preventDefault();const id=f.id.slice(2);
+ const link=$('#l-'+id).value,com=$('#c-'+id).value;if(!link.trim()&&!com.trim()){toast('Coloque um link ou um comentário.');return}
+ const {error}=await SB.rpc('concluir_etapa',{p_step:id,p_link:link,p_comentario:com});if(error){toast('Não deu para enviar. Tente de novo.');return}
+ SB.functions.invoke('notificar',{body:{step_id:id}}).catch(()=>{});toast('Enviado. O Diéville foi avisado.');mentee(CUR)});
+
+/* ---------- admin ---------- */
+const SCH={
+ mentees:{t:'Mentorados',f:[['nome','Nome'],['email','E-mail de acesso','email'],['foco','Subtítulo'],['status','Status',['ativa','pausada','concluida']]],geral:1},
+ steps:{t:'Trilha',o:'ordem',f:[['ordem','Nº','number'],['titulo','Título'],['descricao','Descrição','area'],['status','Status',['bloqueada','atual','aguardando','concluida']]]},
+ materials:{t:'Materiais',o:'ordem',f:[['ordem','Ordem','number'],['titulo','Título'],['descricao','Descrição','area'],['etapa','Etapa','number'],['tipo','Tipo',['link','arquivo']],['url','Link'],['storage_path','Arquivo','file'],['liberado','Liberado','bool']]},
+ meetings:{t:'Encontros',o:'data',desc:1,f:[['data','Data','datetime-local'],['titulo','Título'],['etapa','Etapa','number'],['resumo','O que conversamos','area'],['proximo','Próximo passo','area'],['publicado','Publicado','bool']]},
+ goals:{t:'Metas',o:'ordem',f:[['ordem','Ordem','number'],['titulo','Meta'],['tipo','Tipo',['contagem','sim_nao']],['atual','Atual','number'],['alvo','Alvo','number'],['unidade','Unidade'],['prazo','Prazo']]},
+ private_notes:{t:'Notas privadas (só você vê)',o:'created_at',desc:1,f:[['texto','Nota','area']]}};
+let MS=[],SEL=null;
+async function admin(){show('v-admin');const {data}=await SB.from('mentees').select('*').order('created_at');MS=data||[];if(!SEL&&MS[0])SEL=MS[0].id;
+ $('#aSel').innerHTML=MS.map(m=>`<option value="${m.id}" ${m.id===SEL?'selected':''}>${E(m.nome)}</option>`).join('');await rev();await tab(SCH.mentees,'mentees',null,'#aMentees');await mentAdmin()}
+$('#aSel').onchange=e=>{SEL=e.target.value;mentAdmin()};
+async function mentAdmin(){const m=MS.find(x=>x.id===SEL);if(!m){$('#aDet').innerHTML='<p>Cadastre um mentorado acima.</p>';return}
+ $('#aPonto').innerHTML=`<div class="field"><label>TÍTULO</label><input id="pT" value="${E(m.titulo)}"></div><div class="field"><label>TEXTO (parágrafos separados por linha em branco)</label><textarea id="pX" rows="7">${E(m.ponto_partida)}</textarea></div><label class="mono k">TABELA (uma linha por item: Tema | Situação)</label><textarea id="pTb" rows="6">${E((m.ponto_tabela||[]).map(r=>r.join(' | ')).join('\n'))}</textarea><p><button class="btn sm" id="pS">Salvar ponto de partida</button></p>`;
+ $('#pS').onclick=async()=>{const tb=$('#pTb').value.split('\n').map(l=>l.split('|').map(x=>x.trim())).filter(r=>r[0]).map(r=>[r[0],r.slice(1).join(' | ')]);
+  const {error}=await SB.from('mentees').update({titulo:$('#pT').value,ponto_partida:$('#pX').value,ponto_tabela:tb}).eq('id',m.id);toast(error?'Erro ao salvar.':'Ponto de partida salvo.');if(!error){Object.assign(m,{titulo:$('#pT').value,ponto_partida:$('#pX').value,ponto_tabela:tb})}};
+ for(const k of ['steps','materials','meetings','goals','private_notes'])await tab(SCH[k],k,m.id,'#a-'+k)}
+function inp(f,v,id){const [k,l,t]=f;const n=`data-k="${k}"`;
+ if(Array.isArray(t))return `<select ${n} aria-label="${l}">${t.map(o=>`<option ${o===v?'selected':''} value="${o}">${ST[o]||o.replace('_',' ')}</option>`).join('')}</select>`;
+ if(t==='bool')return `<input type="checkbox" ${n} aria-label="${l}" ${v?'checked':''}>`;
+ if(t==='area')return `<textarea ${n} aria-label="${l}" rows="2">${E(v)}</textarea>`;
+ if(t==='file')return `<span class="k">${v?E(v.split('/').pop()):'sem arquivo'}</span><input type="file" data-file aria-label="Enviar arquivo">`;
+ if(t==='datetime-local'&&v)v=new Date(new Date(v)-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,16);
+ return `<input ${n} type="${t||'text'}" aria-label="${l}" value="${E(v)}">`}
+async function tab(sc,t,mid,sel){let q=SB.from(t).select('*');if(mid)q=q.eq('mentee_id',mid);if(sc.o)q=q.order(sc.o,{ascending:!sc.desc});const {data}=await q;
+ const row=r=>`<tr data-id="${r.id||''}">${sc.f.map(f=>`<td>${inp(f,r[f[0]])}</td>`).join('')}<td class="act"><button class="btn sm" data-save>Salvar</button>${r.id?'<button class="btn ghost sm" data-del>Remover</button>':''}</td></tr>`;
+ $(sel).innerHTML=`<h3>${sc.t}</h3><div class="tw"><table class="tb ed" data-t="${t}" data-m="${mid||''}"><thead><tr>${sc.f.map(f=>`<th>${f[1]}</th>`).join('')}<th></th></tr></thead><tbody>${(data||[]).map(row).join('')}</tbody></table></div><button class="btn ghost sm" data-add>+ Adicionar</button>`;
+ $(sel).querySelector('[data-add]').onclick=()=>{$(sel).querySelector('tbody').insertAdjacentHTML('beforeend',row({}))}}
+document.addEventListener('click',async e=>{const b=e.target.closest('[data-save],[data-del]');if(!b||!b.closest('table.ed'))return;
+ const tr=b.closest('tr'),tb=b.closest('table'),t=tb.dataset.t,mid=tb.dataset.m,id=tr.dataset.id;
+ if(b.hasAttribute('data-del')){if(!confirmDel(tr))return;const {error}=await SB.from(t).delete().eq('id',id);if(error)return toast('Erro ao remover.');tr.remove();toast('Removido.');if(t==='mentees')admin();return}
+ const o={};tr.querySelectorAll('[data-k]').forEach(i=>{let v=i.type==='checkbox'?i.checked:i.value;if(i.type==='number')v=v===''?null:+v;if(i.type==='datetime-local')v=v?new Date(v).toISOString():null;if(v==='')v=null;o[i.dataset.k]=v});
+ if(mid)o.mentee_id=mid;const fi=tr.querySelector('[data-file]');
+ if(fi&&fi.files[0]){const p=`${mid}/${Date.now()}-${fi.files[0].name.replace(/[^\w.\-]+/g,'_')}`;const up=await SB.storage.from('materiais').upload(p,fi.files[0]);if(up.error)return toast('Erro no envio do arquivo.');o.storage_path=p;o.tipo='arquivo'}
+ const r=id?await SB.from(t).update(o).eq('id',id).select().single():await SB.from(t).insert(o).select().single();
+ if(r.error){toast('Erro ao salvar: confira os campos.');return}tr.dataset.id=r.data.id;toast('Salvo.');if(t==='mentees')admin()});
+function confirmDel(tr){if(tr.dataset.ok)return true;tr.dataset.ok=1;const b=tr.querySelector('[data-del]');b.textContent='Confirmar?';setTimeout(()=>{delete tr.dataset.ok;b.textContent='Remover'},4000);return false}
+async function rev(){const {data}=await SB.from('steps').select('*,mentees(nome)').eq('status','aguardando').order('entregue_em');
+ $('#aRev').innerHTML=`<div class="eyebrow">PARA REVISAR · ${(data||[]).length}</div>${(data||[]).map(s=>`<div class="card rv" data-s="${s.id}" data-m="${s.mentee_id}" data-o="${s.ordem}"><b>${E(s.mentees.nome)} · etapa ${s.ordem}: ${E(s.titulo)}</b><p>${s.entrega_link?`<a href="${E(s.entrega_link)}" target="_blank" rel="noopener">${E(s.entrega_link)}</a>`:''}</p><p>${E(s.entrega_comentario)}</p><div class="field"><label>SEU RETORNO</label><textarea class="fbk"></textarea></div><button class="btn sm" data-ap>Aprovar e liberar a próxima</button> <button class="btn ghost sm" data-dv>Pedir ajuste</button></div>`).join('')||'<p>Nada aguardando avaliação.</p>'}`}
+document.addEventListener('click',async e=>{const b=e.target.closest('[data-ap],[data-dv]');if(!b)return;const c=b.closest('.rv'),fb=c.querySelector('.fbk').value||null;
+ if(b.hasAttribute('data-ap')){await SB.from('steps').update({status:'concluida',feedback:fb,avaliado_em:new Date().toISOString()}).eq('id',c.dataset.s);
+  await SB.from('steps').update({status:'atual'}).eq('mentee_id',c.dataset.m).eq('ordem',+c.dataset.o+1).eq('status','bloqueada');toast('Aprovada. A próxima etapa foi liberada.')}
+ else{await SB.from('steps').update({status:'atual',feedback:fb,avaliado_em:new Date().toISOString()}).eq('id',c.dataset.s);toast('Devolvida com seu retorno.')}admin()});
+boot();
+</script>
+<script>(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const sel='body>header,section[id],main>section,.blk2';const pad=document.querySelector('header.cb')?72:16;let t,touch=false,busy=false;addEventListener('touchstart',()=>touch=true,{passive:true});addEventListener('touchend',()=>{touch=false;arm()},{passive:true});function arm(){clearTimeout(t);t=setTimeout(go,220)}function go(){if(touch||busy)return;let best=null,d=1e9;document.querySelectorAll(sel).forEach(e=>{if(!e.offsetParent&&e.tagName!=='HEADER')return;const y=e.getBoundingClientRect().top-pad;if(Math.abs(y)<Math.abs(d)){d=y;best=e}});if(best&&Math.abs(d)>4&&Math.abs(d)<70){busy=true;scrollBy({top:d,behavior:'smooth'});setTimeout(()=>busy=false,500)}}addEventListener('scroll',()=>{if(!busy)arm()},{passive:true})})();</script>
+<div id="ck" class="ck" hidden role="dialog" aria-label="Aviso de privacidade"><p>Uso o Microsoft Clarity para entender como o site é usado, sem guardar o que você digita. Posso ativar?</p><div><button id="ckY">Pode ativar</button><button id="ckN">Agora não</button></div></div>
 <style>.ck{position:fixed;left:16px;right:16px;bottom:16px;max-width:520px;margin:0 auto;z-index:99;background:#19171F;color:#F2F1F6;border:1px solid #2C2935;border-radius:14px;padding:16px 18px;font:14px/1.5 Inter,system-ui,sans-serif;box-shadow:0 18px 40px rgba(0,0,0,.5)}.ck p{margin:0 0 12px;color:#C4C2CE}.ck div{display:flex;gap:10px}.ck button{font:inherit;font-weight:600;border-radius:8px;padding:9px 14px;cursor:pointer;border:1px solid #2C2935;background:transparent;color:#F2F1F6}.ck #ckY{background:#7E7CCC;color:#0F0E14;border-color:#7E7CCC}.ck button:focus-visible{outline:3px solid #7E7CCC;outline-offset:2px}</style>
 <script>(function(){var ID="zeotzek2uq";if(!ID)return;var k="dv-clarity",v=null;try{v=localStorage.getItem(k)}catch(e){}
 function load(){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script",ID);window.clarity("consent")}
