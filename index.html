@@ -232,22 +232,23 @@ svg.robo{--blue-1:#A99BDB;--blue-2:#6E5CB0;--navy-1:#6252A8;--navy-2:#3A2D78;--g
 .cover.art .cvr{top:var(--pb,83%);left:8%;right:8%;white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:3.1cqw;letter-spacing:.08em;opacity:.95}
 .open-book.hasart{min-height:0}[hidden]{display:none!important}
 @media (max-width:640px){.cover.art{align-self:center;aspect-ratio:848/1264;width:72%;border-radius:8px!important;margin:0 auto 12px}}</style>
-</head>
+<style>@media (max-width:640px){header img{object-position:62% 30%!important;opacity:.45!important}header h1{font-size:38px!important}header p{font-size:16px!important}}
+.ck{left:auto!important;right:16px!important;bottom:16px!important;margin:0!important;max-width:340px!important;padding:12px 14px!important;font-size:13px!important}.ck p{margin-bottom:10px!important}</style></head>
 <body>
 <div style="width: 100%; background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; line-height: 1.5">
 
-<div class="minibar" id="minibar" aria-hidden="true"><div class="in"><a href="#" id="toTop" aria-label="Voltar ao topo" style="display:flex;align-items:center;gap:8px"><img src="img/logo.svg" alt="Diéville" width="98" height="20" style="display:block"><span style="color:#7E7CCC">↑</span></a><span class="l"><a href="#projetos">Cases</a><a href="sobre.html">Sobre</a><a href="#log">Trajetória</a><a href="mentoria.html">Área do mentorado</a><a class="cta" href="#contato">Quero conversar</a></span></div></div>
+<div class="minibar" id="minibar" aria-hidden="true"><div class="in"><a href="#" id="toTop" aria-label="Voltar ao topo" style="display:flex;align-items:center;gap:8px"><img src="img/logo.svg" alt="Diéville" width="98" height="20" style="display:block"><span style="color:#7E7CCC">↑</span></a><span class="l"><a href="#projetos">Cases</a><a href="sobre.html">Sobre</a><a class="cta" href="#contato">Quero conversar</a></span></div></div>
 <!-- TOPO -->
 <header style="position: relative; height: 760px; overflow: hidden; background: #0F0E14">
 <img src="img/eu-setup.jpg" alt="Diéville trabalhando no setup, em frente aos monitores" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 75% 35%; opacity: 0.75">
 <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,14,20,0.96) 0%, rgba(15,14,20,0.82) 45%, rgba(15,14,20,0.25) 100%)"></div>
 <div style="position: relative; max-width: 1120px; margin: 0 auto; padding: 24px 32px; color: #F2F1F6; height: 100%; box-sizing: border-box; display: flex; flex-direction: column">
-<nav style="display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 13px"><a href="index.html" aria-label="Diéville, início" style="display:flex;align-items:center;gap:10px;text-decoration:none"><img src="img/logo.svg" alt="Diéville" width="118" height="24" style="display:block"><span class="vtag" style="color: #7E7CCC">v2.0</span></a><button class="burger" id="burger" aria-expanded="false" aria-controls="navl" aria-label="Abrir menu">☰</button><span id="navl" style="display: flex; gap: 24px; align-items: center"><a href="#projetos" style="text-decoration: none">Cases</a><a href="sobre.html" style="text-decoration: none">Sobre</a><a href="#log" style="text-decoration: none">Trajetória</a><a href="mentoria.html" style="text-decoration: none; color: #C4C2CE">Área do mentorado</a><a href="#contato" style="text-decoration: none; padding: 8px 14px; border-radius: 8px; background: #7E7CCC; color: #0F0E14">Quero conversar</a><span class="tip"><button id="tMov" class="ico" aria-pressed="false" aria-label="Reduzir movimento" aria-describedby="tMovTip">≋</button><span class="tipbox" role="tooltip" id="tMovTip">Reduzir movimento</span></span></span></nav>
+<nav style="display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 13px"><a href="index.html" aria-label="Diéville, início" style="display:flex;align-items:center;gap:10px;text-decoration:none"><img src="img/logo.svg" alt="Diéville" width="118" height="24" style="display:block"><span class="vtag" style="color: #7E7CCC">v2.1</span></a><button class="burger" id="burger" aria-expanded="false" aria-controls="navl" aria-label="Abrir menu">☰</button><span id="navl" style="display: flex; gap: 24px; align-items: center"><a href="#projetos" style="text-decoration: none">Cases</a><a href="sobre.html" style="text-decoration: none">Sobre</a><a href="#contato" style="text-decoration: none; padding: 8px 14px; border-radius: 8px; background: #7E7CCC; color: #0F0E14">Quero conversar</a><span class="tip"><button id="tMov" class="ico" aria-pressed="false" aria-label="Reduzir movimento" aria-describedby="tMovTip">≋</button><span class="tipbox" role="tooltip" id="tMovTip">Reduzir movimento</span></span></span></nav>
 <div class="hero-grid"><div style="max-width: 620px; display: flex; flex-direction: column; gap: 20px">
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #7E7CCC"><span id="boot" aria-hidden="true"></span><span class="sr" id="bootSr">Product Designer sênior</span></div>
 <h1 style="margin: 0; font-size: 60px; line-height: 1.02; letter-spacing: -0.03em">Coleciono histórias.<br>Estruturo produtos que funcionam.</h1>
 <p style="margin: 0; font-size: 18px; color: #C4C2CE">Sou o Diéville, Product Designer sênior. Há mais de 10 anos crio estrutura onde ela ainda não existe, em fintech, healthtech, agrotech, foodtech e investimentos.</p>
-<div style="display: flex; gap: 12px; flex-wrap: wrap"><a href="#projetos" style="text-decoration: none; padding: 14px 24px; border-radius: 8px; background: #7E7CCC; color: #0F0E14; font-weight: 600">Ver os cases</a><a href="#contato" style="text-decoration: none; padding: 14px 24px; border-radius: 8px; border: 1.5px solid #F2F1F6; font-weight: 600">Quero conversar</a></div>
+<div style="display: flex; gap: 12px; flex-wrap: wrap"><a href="#projetos" style="text-decoration: none; padding: 14px 24px; border-radius: 8px; background: #7E7CCC; color: #0F0E14; font-weight: 600">Ver os cases</a><a href="#contato" style="text-decoration: none; padding: 14px 24px; border-radius: 8px; border: 1.5px solid #F2F1F6; font-weight: 600">Quero conversar</a><a href="cv.pdf" download style="text-decoration: none; padding: 14px 8px; font-weight: 600; color: #C4C2CE">Baixar CV ↓</a></div>
 </div>
 
 </div>
@@ -360,7 +361,7 @@ svg.robo{--blue-1:#A99BDB;--blue-2:#6E5CB0;--navy-1:#6252A8;--navy-2:#3A2D78;--g
 <h2 style="margin: 0 0 16px; font-size: 36px; line-height: 1.1">Diéville Leandro</h2>
 <div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">CLASSE</span><span style="text-align: right">Product Designer sênior, generalista</span></div>
 <div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">BASE</span><span style="text-align: right">Fortaleza, CE</span></div>
-<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">ORIGEM</span><span style="text-align: right">Engenharia de Software e Artes Visuais</span></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">ORIGEM</span><span style="text-align: right">Análise e Desenvolvimento de Software e Artes Visuais</span></div>
 <div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">XP</span><span style="text-align: right">10+ anos, 5 setores</span></div>
 <div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">HABILIDADE PASSIVA</span><span style="text-align: right">Estruturo o que ainda não existe</span></div>
 <div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">HABILIDADES ATIVAS</span><span style="text-align: right">Discovery, design system, handoff, IA no processo</span></div>
@@ -370,7 +371,7 @@ svg.robo{--blue-1:#A99BDB;--blue-2:#6E5CB0;--navy-1:#6252A8;--navy-2:#3A2D78;--g
 
 </div>
 <div style="flex: 1 1 100%; display: flex; flex-direction: column"><div class="trail" aria-label="Trajetória, da primeira à atual"><span class="mono">TRAJETÓRIA</span><ol><li><b>Whiletrue</b><small>2021 · freela UI</small></li><li><b>GLIC</b><small>2022 · healthtech</small></li><li><b>Quiker</b><small>2022 a 2025</small></li><li class="now"><b>Boavista</b><small>2025 · agora</small></li></ol></div>
-<a href="#log" style="margin-top: 16px; align-self: flex-start; font-weight: 600; color: var(--accent); text-decoration: none">Ver os pontos de salvamento →</a></div>
+<a href="sobre.html#trajetoria" style="margin-top: 16px; align-self: flex-start; font-weight: 600; color: var(--accent); text-decoration: none">Ver a trajetória completa →</a></div>
 </div>
 </section>
 <!-- FORA DO FIGMA -->
@@ -411,29 +412,22 @@ svg.robo{--blue-1:#A99BDB;--blue-2:#6E5CB0;--navy-1:#6252A8;--navy-2:#3A2D78;--g
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent)">IA NO PROCESSO</div>
 <div style="font-size: 20px; font-weight: 600; line-height: 1.3">Velocidade sem critério só faz você errar mais rápido.</div>
 <p style="margin: 0; font-size: 15px; color: var(--text2)">Transformei meu processo de design em instruções que uma IA consegue seguir. O ganho foi ela não me deixar pular etapas.</p>
-<div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--text3); margin-top: auto"><span>9 reações</span><span> Ler no LinkedIn ↗</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--text3); margin-top: auto"><span></span><span> Ler no LinkedIn ↗</span></div>
 </a><a href="https://lnkd.in/p/dznWJss5" target="_blank" rel="noopener" style="flex: 1 1 300px; min-width: 0; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 12px">
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent)">GENERALISTA</div>
 <div style="font-size: 20px; font-weight: 600; line-height: 1.3">Ser generalista é saber quando aprofundar e quando ser rápido.</div>
 <p style="margin: 0; font-size: 15px; color: var(--text2)">Único PD entre squads distintas: uma pede pesquisa estruturada, outra uma decisão em 24h.</p>
-<div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--text3); margin-top: auto"><span>30 reações · 857 impressões</span><span> Ler no LinkedIn ↗</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--text3); margin-top: auto"><span></span><span> Ler no LinkedIn ↗</span></div>
 </a><a href="https://lnkd.in/p/dEpPiKsP" target="_blank" rel="noopener" style="flex: 1 1 300px; min-width: 0; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 12px">
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent)">GESTÃO DE DELIVERY</div>
 <div style="font-size: 20px; font-weight: 600; line-height: 1.3">A dor não é de tecnologia, é de confiança.</div>
 <p style="margin: 0; font-size: 15px; color: var(--text2)">O lojista fecha o mês sem saber quanto sobrou. Como desenhar um fluxo que aproxime o que a plataforma informa do que caiu na conta.</p>
-<div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--text3); margin-top: auto"><span>post recente</span><span> Ler no LinkedIn ↗</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--text3); margin-top: auto"><span></span><span> Ler no LinkedIn ↗</span></div>
 </a></div>
 </section>
 
 <!-- LOG -->
-<section id="log" style="max-width: 1120px; margin: 0 auto; padding: 0 32px 88px; display: flex; flex-wrap: wrap; gap: 48px">
-<div style="flex: 1 1 420px; min-width: 0"><div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); padding-bottom: 8px">LOG DE MISSÕES · TRAJETÓRIA</div><h2 style="margin: 0 0 24px; font-size: 36px; line-height: 1.1">Pontos de salvamento</h2><div style="display: flex; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); flex: 0 0 88px">AGORA</span><div><b>Boavista · fintech</b><div style="color: var(--text2)">Senior Product Designer desde 2025. Design system, handoff e IA no processo, em 5 squads.</div></div></div><div style="display: flex; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); flex: 0 0 88px">2026</span><div><b>The Watchlist</b><div style="color: var(--text2)">Produto próprio, em paralelo, construído com IA.</div></div></div><div style="display: flex; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); flex: 0 0 88px">2022 A 2025</span><div><b>Quiker</b><div style="color: var(--text2)">Product Designer numa empresa de vários clientes: agrotech (Vect.Ag), fintech, healthtech e investimentos, com projetos para LATAM, Braile, CEOX e Cory.</div></div></div><div style="display: flex; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); flex: 0 0 88px">2022</span><div><b>GLIC · healthtech</b><div style="color: var(--text2)">Primeiro cargo de Product Designer, como júnior. App e web para pessoas com diabetes.</div></div></div><div style="display: flex; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line)"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); flex: 0 0 88px">2021</span><div><b>Whiletrue</b><div style="color: var(--text2)">Freela de UI numa plataforma gamificada de ensino para devs. Onde comecei.</div></div></div></div>
-<div style="flex: 1 1 360px; min-width: 0; display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 210px; gap: 12px">
-<img src="img/eu-costas.jpg" alt="Diéville de costas organizando post-its em uma parede de discovery" style="width: 100%; height: 100%; object-fit: cover; object-position: 45% 30%; border-radius: 10px; grid-row: span 2">
-<img src="img/gameboy.jpg" alt="Console portátil roxo nas mãos de Diéville" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px">
-<img src="img/pegboard.jpg" alt="Painel preto na parede com fones, console, Pokébola e objetos retrô" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px">
-</div>
-</section>
+
 <!-- CONTATO -->
 <section id="contato" style="background: #7E7CCC; color: #0F0E14">
 <div style="max-width: 1120px; margin: 0 auto; padding: 80px 32px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
@@ -454,7 +448,7 @@ svg.robo{--blue-1:#A99BDB;--blue-2:#6E5CB0;--navy-1:#6252A8;--navy-2:#3A2D78;--g
 <!-- RODAPÉ -->
 <footer style="max-width: 1120px; margin: 0 auto; padding: 32px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 14px; color: var(--text3)">
 <span>Diéville Leandro, Product Designer © 2026</span>
-<span style="font-family: 'JetBrains Mono', monospace">v2.0 · atualizado em nov 2026</span>
+<span style="font-family: 'JetBrains Mono', monospace">v2.1 · atualizado em nov 2026</span>
 </footer>
 
 </div>
@@ -561,12 +555,12 @@ $('tMov').onclick=e=>{const on=root.dataset.motion!=='reduzido';root.dataset.mot
 
 /* boot do hero: completo na primeira visita, curto nas seguintes, pulável */
 (function(){
- const el=document.getElementById('boot');const txt='> carregando perfil... Diéville Leandro, Product Designer sênior';
+ const el=document.getElementById('boot');const txt='> Product Designer sênior · Fortaleza, CE';
  const hero=el.closest('.hero-grid');const rest=[...hero.querySelectorAll(':scope > div > *, :scope > .feat')].filter(c=>!c.contains(el));
  let seen=false;try{seen=localStorage.getItem('dv-boot')==='1';localStorage.setItem('dv-boot','1')}catch(e){}
  if(still()){el.textContent=txt;return}
- rest.forEach(c=>c.classList.add('boot-hide'));let i=0,t=null,done=false;
- const reveal=()=>{if(done)return;done=true;clearInterval(t);el.textContent=txt;rest.forEach((c,k)=>setTimeout(()=>{c.classList.add('boot-show');c.classList.remove('boot-hide')},(seen?40:120)*k));document.removeEventListener('keydown',skipK);document.removeEventListener('pointerdown',reveal)};
+ let i=0,t=null,done=false;
+ const reveal=()=>{if(done)return;done=true;clearInterval(t);el.textContent=txt;document.removeEventListener('keydown',skipK);document.removeEventListener('pointerdown',reveal)};
  const skipK=e=>{if(e.key==='Escape'||e.key===' '||e.key==='Enter')reveal()};
  document.addEventListener('keydown',skipK);document.addEventListener('pointerdown',reveal);
  const step=seen?Math.max(8,Math.floor(700/txt.length)):32;
