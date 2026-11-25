@@ -239,7 +239,15 @@ svg.robo{--blue-1:#A99BDB;--blue-2:#6E5CB0;--navy-1:#6252A8;--navy-2:#3A2D78;--g
 .trail li.now{-webkit-mask-image:none}
 .trail li.now::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 40%,#0F0E14)}
 .trail li.now{padding-top:14px}}
-@media (max-width:760px){.trail li.now{border-left-style:dashed!important}}</style></head>
+@media (max-width:760px){.trail li.now{border-left-style:dashed!important}}</style><style>
+#tMov{width:auto;padding:0 12px 0 8px;gap:8px;font:500 13px Inter,system-ui,sans-serif}
+#tMov .mv-sw{width:26px;height:14px;border-radius:999px;background:#7E7CCC;position:relative;transition:background .2s}
+#tMov .mv-sw::after{content:"";position:absolute;top:2px;left:14px;width:10px;height:10px;border-radius:50%;background:#0F0E14;transition:left .2s}
+#tMov[aria-pressed="true"]{color:#C4C2CE;border-color:#4A4258}
+#tMov[aria-pressed="true"] .mv-sw{background:#4A4258}
+#tMov[aria-pressed="true"] .mv-sw::after{left:2px;background:#C4C2CE}
+
+</style></head>
 <body>
 <div style="width: 100%; background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; line-height: 1.5">
 
@@ -249,7 +257,7 @@ svg.robo{--blue-1:#A99BDB;--blue-2:#6E5CB0;--navy-1:#6252A8;--navy-2:#3A2D78;--g
 <img fetchpriority="high" src="img/eu-setup.jpg" alt="Diéville trabalhando no setup, em frente aos monitores" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 75% 35%; opacity: 0.75">
 <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,14,20,0.96) 0%, rgba(15,14,20,0.82) 45%, rgba(15,14,20,0.25) 100%)"></div>
 <div style="position: relative; max-width: 1120px; margin: 0 auto; padding: 24px 32px; color: #F2F1F6; height: 100%; box-sizing: border-box; display: flex; flex-direction: column">
-<nav style="display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', system-ui, sans-serif; font-size: 15px; font-weight: 500"><a href="index.html" aria-label="Diéville, início" style="display:flex;align-items:center;gap:10px;text-decoration:none"><img src="img/logo.svg" alt="Diéville" width="118" height="24" style="display:block"><span class="vtag" style="color: #7E7CCC">v2.1</span></a><button class="burger" id="burger" aria-expanded="false" aria-controls="navl" aria-label="Abrir menu">☰</button><span id="navl" style="display: flex; gap: 24px; align-items: center"><a href="#projetos" style="text-decoration: none">Cases</a><a href="sobre.html" style="text-decoration: none">Sobre</a><a href="#contato" style="text-decoration: none; padding: 8px 14px; border-radius: 8px; background: #7E7CCC; color: #0F0E14">Quero conversar</a><span class="tip"><button id="tMov" class="ico" aria-pressed="false" aria-label="Reduzir movimento" aria-describedby="tMovTip">≋</button><span class="tipbox" role="tooltip" id="tMovTip">Reduzir movimento</span></span></span></nav>
+<nav style="display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', system-ui, sans-serif; font-size: 15px; font-weight: 500"><a href="index.html" aria-label="Diéville, início" style="display:flex;align-items:center;gap:10px;text-decoration:none"><img src="img/logo.svg" alt="Diéville" width="118" height="24" style="display:block"><span class="vtag" style="color: #7E7CCC">v2.1</span></a><button class="burger" id="burger" aria-expanded="false" aria-controls="navl" aria-label="Abrir menu">☰</button><span id="navl" style="display: flex; gap: 24px; align-items: center"><a href="#projetos" style="text-decoration: none">Cases</a><a href="sobre.html" style="text-decoration: none">Sobre</a><a href="#contato" style="text-decoration: none; padding: 8px 14px; border-radius: 8px; background: #7E7CCC; color: #0F0E14">Quero conversar</a><span class="tip"><button id="tMov" class="ico" aria-pressed="false" aria-label="Reduzir movimento" aria-describedby="tMovTip"><span class="mv-sw" aria-hidden="true"></span><span class="mv-t">Animações</span></button><span class="tipbox" role="tooltip" id="tMovTip">Reduzir movimento</span></span></span></nav>
 <div class="hero-grid"><div style="max-width: 620px; display: flex; flex-direction: column; gap: 20px">
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #7E7CCC"><span id="boot" aria-hidden="true"></span><span class="sr" id="bootSr">Product Designer sênior</span></div>
 <h1 style="margin: 0; font-size: 60px; line-height: 1.02; letter-spacing: -0.03em">Coleciono histórias.<br>Estruturo produtos que funcionam.</h1>
@@ -262,7 +270,7 @@ svg.robo{--blue-1:#A99BDB;--blue-2:#6E5CB0;--navy-1:#6252A8;--navy-2:#3A2D78;--g
 </header>
 <!-- PROVA RÁPIDA -->
 <section style="max-width: 1120px; margin: 0 auto; padding: 56px 32px 56px">
-<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); padding-bottom: 16px">ATRIBUTOS</div>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); padding-bottom: 16px">EM NÚMEROS</div>
 <div style="display: flex; flex-wrap: wrap; gap: 16px">
 <div style="flex: 1 1 240px; min-width: 0; padding: 20px 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px">
 <div style="font-size: 36px; font-weight: 700; letter-spacing: -0.02em">10+ anos</div>
@@ -282,7 +290,7 @@ svg.robo{--blue-1:#A99BDB;--blue-2:#6E5CB0;--navy-1:#6252A8;--navy-2:#3A2D78;--g
 <!-- LOGOS -->
 <section class="guildas" aria-labelledby="gTitle">
 <div class="g-wrap">
-<div class="g-label"><span class="mono" style="color:#7E7CCC">GUILDAS</span><span id="gTitle">Empresas por onde passei</span></div>
+<div class="g-label"><span class="mono" style="color:#7E7CCC">EMPRESAS</span><span id="gTitle">Empresas por onde passei</span></div>
 <div class="g-track"><ul class="g-list"><li><img loading="lazy" decoding="async" src="img/logo-boavista.png" alt="Boavista"></li><li><img loading="lazy" decoding="async" src="img/logo-glic.png" alt="GLIC"></li><li><img loading="lazy" decoding="async" src="img/logo-vectag.png" alt="Vect.Ag"></li><li><img loading="lazy" decoding="async" src="img/logo-latam.png" alt="LATAM"></li><li><img loading="lazy" decoding="async" src="img/logo-braile.png" alt="Braile Biomédica"></li><li><img loading="lazy" decoding="async" src="img/logo-ceox.png" alt="CEOX"></li><li><img loading="lazy" decoding="async" src="img/logo-cory.png" alt="Cory"></li></ul><ul class="g-list" aria-hidden="true"><li><img loading="lazy" decoding="async" src="img/logo-boavista.png" alt="" data-a="Boavista"></li><li><img loading="lazy" decoding="async" src="img/logo-glic.png" alt="" data-a="GLIC"></li><li><img loading="lazy" decoding="async" src="img/logo-vectag.png" alt="" data-a="Vect.Ag"></li><li><img loading="lazy" decoding="async" src="img/logo-latam.png" alt="" data-a="LATAM"></li><li><img loading="lazy" decoding="async" src="img/logo-braile.png" alt="" data-a="Braile Biomédica"></li><li><img loading="lazy" decoding="async" src="img/logo-ceox.png" alt="" data-a="CEOX"></li><li><img loading="lazy" decoding="async" src="img/logo-cory.png" alt="" data-a="Cory"></li></ul></div>
 </div>
 </section>
@@ -290,7 +298,7 @@ svg.robo{--blue-1:#A99BDB;--blue-2:#6E5CB0;--navy-1:#6252A8;--navy-2:#3A2D78;--g
 <!-- PROJETOS -->
 <section id="projetos" style="max-width: 1120px; margin: 0 auto; padding: 88px 32px">
 <div style="display: flex; flex-direction: column; gap: 12px; padding-bottom: 40px">
-<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">PRATELEIRA 1 · CASES</div>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">CASES</div>
 <h2 style="margin: 0; font-size: 36px; line-height: 1.1; letter-spacing: -0.01em"><span class="dk">Cada case é um livro. Puxe um.</span><span class="mb">Cada case é um livro. Escolha um.</span></h2>
 <p style="margin: 0; font-size: 17px; color: var(--text2); max-width: 640px"><span class="dk">Do mais recente ao mais antigo. Abra um livro para ver meu papel, a decisão que mudou o projeto e o resultado. Se algo ainda não foi medido, eu aviso.</span><span class="mb">Do mais recente ao mais antigo. Abra um case para ver meu papel, a decisão que mudou o projeto e o resultado. Se algo ainda não foi medido, eu aviso.</span></p>
 </div>
@@ -303,8 +311,8 @@ svg.robo{--blue-1:#A99BDB;--blue-2:#6E5CB0;--navy-1:#6252A8;--navy-2:#3A2D78;--g
 <span id="depo-anchor"></span>
 <section style="max-width: 1120px; margin: 0 auto; padding: 88px 32px">
 <div style="display: flex; flex-direction: column; gap: 12px; padding-bottom: 40px">
-<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">CONQUISTAS · DEPOIMENTOS</div>
-<h2 style="margin: 0; font-size: 36px; line-height: 1.15; letter-spacing: -0.01em">Conquistas desbloqueadas</h2>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">DEPOIMENTOS</div>
+<h2 style="margin: 0; font-size: 36px; line-height: 1.15; letter-spacing: -0.01em">O que dizem de trabalhar comigo</h2>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 24px"><figure style="flex: 1 1 320px; min-width: 0; margin: 0; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; display: flex; flex-direction: column; gap: 14px">
 <blockquote style="margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; color: var(--ink)">“O projeto era extremamente organizado, bonito e coerente.”</blockquote>
@@ -333,7 +341,7 @@ svg.robo{--blue-1:#A99BDB;--blue-2:#6E5CB0;--navy-1:#6252A8;--navy-2:#3A2D78;--g
 <!-- CRIEI DO ZERO -->
 <section id="do-zero" style="max-width: 1120px; margin: 0 auto; padding: 0 32px 88px">
 <div style="display: flex; flex-direction: column; gap: 12px; padding-bottom: 32px">
-<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">INVENTÁRIO · BOAVISTA</div>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">NA BOAVISTA</div>
 <h2 style="margin: 0; font-size: 36px; line-height: 1.1; letter-spacing: -0.01em">O que eu criei do zero</h2>
 <p style="margin: 0; font-size: 17px; color: var(--text2); max-width: 640px">Quando cheguei, não havia design system, handoff nem documentação central. Hoje existem, e o front transforma os componentes direto em código.</p>
 </div>
@@ -410,7 +418,7 @@ svg.robo{--blue-1:#A99BDB;--blue-2:#6E5CB0;--navy-1:#6252A8;--navy-2:#3A2D78;--g
 <!-- LINKEDIN -->
 <section style="max-width: 1120px; margin: 0 auto; padding: 88px 32px">
 <div style="display: flex; flex-direction: column; gap: 12px; padding-bottom: 32px">
-<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">DIÁRIO DE CAMPANHA · LINKEDIN</div>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text3)">NO LINKEDIN</div>
 <h2 style="margin: 0; font-size: 36px; line-height: 1.15; letter-spacing: -0.01em">Penso em voz alta no LinkedIn</h2>
 <p style="margin: 0; font-size: 17px; color: var(--text2); max-width: 640px">IA no design, processo e o que aprendo criando estrutura onde não havia.</p>
 </div>
@@ -593,7 +601,7 @@ $('tMov').onclick=e=>{const on=root.dataset.motion!=='reduzido';root.dataset.mot
   const inner=document.createElement('div');inner.className='inner';
   const front=document.createElement('div');front.className='face front';
   const back=document.createElement('div');back.className='face back';back.id='back-'+n;
-  front.innerHTML='<div class="badge"><i>★</i>CONQUISTA DESBLOQUEADA</div>';front.append(q,cap);
+  front.innerHTML='<div class="badge"><i>★</i>RECOMENDAÇÃO</div>';front.append(q,cap);
   const b1=document.createElement('button');b1.className='turn';b1.textContent='Ler o depoimento completo';b1.setAttribute('aria-expanded','false');b1.setAttribute('aria-controls',back.id);front.append(b1);
   back.innerHTML='<div class="badge"><i>★</i>'+name.toUpperCase()+'</div>';back.append(p);
   const b2=document.createElement('button');b2.className='turn';b2.textContent='Voltar';back.append(b2);
